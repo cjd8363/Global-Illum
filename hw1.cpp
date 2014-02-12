@@ -9,9 +9,13 @@
  
 public class RayTracer
 {
-    
+    // Height of the view plane
     private float height;
+    
+    // Width of the view plane
     private float width;
+    
+    // Array of pixels in view plane
     private Pixel[][] pixels;
     
     // Takes in the height and width of the scene
@@ -29,6 +33,7 @@ public class RayTracer
       // Objects to be added with init values
       RayTracer rayTray = new rayTray(height, width);
       Camera cam = new Camera(&pos, &lookat, &up);
+      World world = new World(bgColor);
       // init pixels with color and position
     }
 };

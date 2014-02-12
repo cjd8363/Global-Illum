@@ -8,15 +8,30 @@
  
 public class Camera
 {
+    // The point which the camera is looking at
     private Point* lookAt;
+    
+    // The position of the camera in world space
     private Point* position;
+    
+    // The up direction the camera. Which way is up?
     private Point* up;
     
+    // The focal length of the camera
+    private float focalL;
+    
+    //Inits the focal length to 1 if not provided
     public Camera(Point* pos, Point* lookAt, Point* up)
+    {
+        Camera(pos, lookAt, up, 1f);
+    }
+    
+    public Camera((Point* pos, Point* lookAt, Point* up, Float focalLen)
     {
         this.lookAt = lookAt;
         this.position = pos;
         this.up = up;
+        this.focalL = focalLen;
     }
     
     //Takes the world, which has been transformed into camera space,

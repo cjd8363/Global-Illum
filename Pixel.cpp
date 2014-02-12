@@ -1,0 +1,12 @@
+/* 
+ * Basic Ray Tracer Component for Hw1
+ * @author Charlene DiMeglio
+ * @author Jorge Leon
+ */
+ 
+ 
+ public class Pixel
+ {
+     private Point position;
+     private Color color;
+ };

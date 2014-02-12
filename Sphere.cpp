@@ -5,8 +5,3 @@
  * @author Jorge Leon
  */
  
- public class World
- {
-     
-     
- };

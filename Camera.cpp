@@ -38,6 +38,10 @@ public class Camera
     //Spawns Rays, and shoots them into the world through the given pixels
     public void render(World world, Pixel[] pixels)
     {
-        
+        //rays = world.spawn() (makes a ray, one for each camera to pixel possibility
+        //for each ray
+            // for each object
+                //intersect
+                //if true, grab rgb of intersection point and apply color to pixel
     };
 };

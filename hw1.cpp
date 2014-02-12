@@ -34,6 +34,10 @@ public class RayTracer
       RayTracer rayTray = new rayTray(height, width);
       Camera cam = new Camera(&pos, &lookat, &up);
       World world = new World(bgColor);
+      //Below, depending on how u do this, the sphere may already be made at this point
+      //during file parsing, or the variables may be named differently.
+      // also, for now, material is a string (may be a float later)
+      world.add(new Sphere(center, radius, material));
       // init pixels with color and position
     }
 };

@@ -32,6 +32,9 @@
     }
     
     //SHELL
+    //Given a matrix, tranform the given point 
+    // THOUGHT: I think this should just be a vector.
+    //          We don't rotate or scale points.
     public Point transform(Matrix matrix)
     {
         return new Point(0f,0f,0f);

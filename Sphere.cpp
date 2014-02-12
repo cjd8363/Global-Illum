@@ -29,7 +29,7 @@ class Sphere : public Object
     //Returns null if no intersection
     public Point intersect(Ray ray)
     {
-        
+        //TODO
     }
     
 };

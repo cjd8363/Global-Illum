@@ -36,7 +36,7 @@ public class Camera
     
     //Takes the world, which has been transformed into camera space,
     //Spawns Rays, and shoots them into the world through the given pixels
-    public void render(World world, Pixel[] pixels)
+    public void render(World world, Pixel[][] pixels)
     {
         vector<Ray> rays = world.spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
         for (int i = 0; i < rays.size(); i++)
@@ -47,6 +47,8 @@ public class Camera
                 {
                     //grab rgb of intersection point and apply color to pixel
                     // For now, just simple flat application of sphere's color, independent of point
+                    //sorta
+                    //pixels[pixels.length/i][pixels.length%i]->setColor(obj[j]->getColor());
                 }
             }
         }

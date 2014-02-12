@@ -4,10 +4,3 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
- 
-public class Ray
-{
-    private Point origin;
-    private Vector Direction;
-    
-};

@@ -7,6 +7,10 @@
  
  public class World
  {
+     // The objects in the world
+     private Object[] objs;
      
-     
+     // The background color of the world;
+     private Color bgColor
+         
  };

@@ -25,6 +25,7 @@ public class RayTracer
         this.width = width;
     }
     
+    
     void main(int argc, char** argv)
     {
       // Height and Width of image
@@ -33,12 +34,14 @@ public class RayTracer
       // Objects to be added with init values
       RayTracer rayTray = new rayTray(height, width);
       Camera cam = new Camera(&pos, &lookat, &up);
-      World world = new World(bgColor);
+      World world = new World(bgColor, numObjs);
       //Below, depending on how u do this, the sphere may already be made at this point
       //during file parsing, or the variables may be named differently.
       // also, for now, material is a string (may be a float later)
       world.add(new Sphere(center, radius, material));
-      // init pixels with color and position
+      // Need matrix still
+      world.transformAll(Matrix m);
+      cam.render(world);
     }
 };
  

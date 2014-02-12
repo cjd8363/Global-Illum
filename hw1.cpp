@@ -2,6 +2,7 @@
  * Basic Ray Tracer Component for Hw1
  * @author Charlene DiMeglio
  * @author Jorge Leon
+ * NOT DONE
  */
 
 #include string
@@ -34,7 +35,7 @@ public class RayTracer
       // Objects to be added with init values
       RayTracer rayTray = new rayTray(height, width);
       Camera cam = new Camera(&pos, &lookat, &up);
-      World world = new World(bgColor, numObjs);
+      World world = new World(&bgColor, numObjs);
       //Below, depending on how u do this, the sphere may already be made at this point
       //during file parsing, or the variables may be named differently.
       // also, for now, material is a string (may be a float later)

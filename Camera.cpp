@@ -38,10 +38,17 @@ public class Camera
     //Spawns Rays, and shoots them into the world through the given pixels
     public void render(World world, Pixel[] pixels)
     {
-        //rays = world.spawn() (makes a ray, one for each camera to pixel possibility
-        //for each ray
-            // for each object
-                //intersect
-                //if true, grab rgb of intersection point and apply color to pixel
+        vector<Ray> rays = world.spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
+        for (int i = 0; i < rays.size(); i++)
+        {
+            for (int j = 0; j < world.objs.length; j++)
+            {
+                if (world.objs[j].intersect(rays[i]) != null)
+                {
+                    //grab rgb of intersection point and apply color to pixel
+                    // For now, just simple flat application of sphere's color, independent of point
+                }
+            }
+        }
     };
 };

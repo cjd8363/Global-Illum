@@ -3,6 +3,7 @@
  * Point class
  * @author Charlene DiMeglio
  * @author Jorge Leon
+ * NOT FINISHED
  */
  
 #include <math.h>

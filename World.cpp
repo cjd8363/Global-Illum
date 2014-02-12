@@ -43,6 +43,6 @@ using namespace std;
      // Given the pixels, create rays from the camera to pixel
      public Ray[] spawn(Pixel[][] pixels)
      {
-         
+         //TO DO
      }
  };

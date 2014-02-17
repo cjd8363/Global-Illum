@@ -43,8 +43,12 @@ public class Camera
         {
             for (int j = 0; j < world.objs.length; j++)
             {
-                if (world.objs[j].intersect(rays[i]) != null)
+                Point* p = world.objs[j].intersect(rays[i]);
+                if (p != null)
                 {
+                    pixels[pixels.length/i][pixels.length%i]->setColor(p->getColor());
+                    
+                    // OLD v
                     //grab rgb of intersection point and apply color to pixel
                     // For now, just simple flat application of sphere's color, independent of point
                     //sorta

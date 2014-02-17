@@ -7,10 +7,13 @@
  
 public class Vector
 {
+    // The X component of the vector
     private float x;
     
+    // The Y component of the vector
     private float y;
     
+    // The Z component of the vector
     private float z;
     
     public Vector(float x, float y, float z)
@@ -19,6 +22,7 @@ public class Vector
         this.y = y;
         this.z = z;
     }
+    
     
     public Vector add(Vector v)
     {

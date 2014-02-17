@@ -10,6 +10,10 @@
  
  public class Point
  {
+    
+    //The color value of the Point
+    private Color* color;
+     
     //X positon
     private float x;
     
@@ -19,11 +23,12 @@
     //Z position
     private float z;
     
-    public Point(float x, float y, float z)
+    public Point(float x, float y, float z, Color* c)
     {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.color = c;
     }
         
     // Returns distance to given point
@@ -69,6 +74,16 @@
     public void setZ(float num)
     {
         this.z = num;
+    }
+    
+    public Color* getColor()
+    {
+        return this.color;
+    }
+    
+    public void setColor(Color* c)
+    {
+        this.color = c;
     }
     
  };

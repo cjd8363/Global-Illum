@@ -5,33 +5,62 @@
  * @author Jorge Leon
  */
  
-public class Vector
+ // vector is taken by the library vector.h, we can't use that name for this
+public class vect_or
 {
-    // The X component of the vector
-    private float x;
+    // The X, Y and Z components of the vector
+    private:
+        float x, y, z;
     
-    // The Y component of the vector
-    private float y;
     
-    // The Z component of the vector
-    private float z;
+    public:
     
-    public Vector(float x, float y, float z)
+    vect_or(float x, float y, float z)
     {
         this.x = x;
         this.y = y;
         this.z = z;
     }
     
+    // Syntax corrections
     
-    public Vector add(Vector v)
+    vect_or add(vect_or v)
     {
-        return Vector(this.x + v.getX(), this.y + v.getY(), this.z + v.getZ());
+        return vect_or(this.x + v.getX(), this.y + v.getY(), this.z + v.getZ());
     }
     
-    public Vector sub(Vector v)
+    vect_or sub(vect_or v)
     {
-        return Vector(this.x - v.getX(), this.y - v.getY(), this.z - v.getZ());
+        return vect_or(this.x - v.getX(), this.y - v.getY(), this.z - v.getZ());
     }
     // need cross, dot, length, transform
+    // Took care of the other methods
+    	vect_or crossProd (vect_or v){
+		      return Vect ( y*v.getZ() - z*v.getY(), 
+					                 z*v.getX() - x*v.getZ(), 
+					                 x*v.getY() - y*v.getX());
+	    }
+    
+     double length(){
+        return sqrt(x*x + y*y + z*z);
+     }
+     
+     vect_or normalize(){
+		      double magnitude = sqrt((x*x)+(y*y)+(z*z));
+		      return vect_or (x/magnitude, y/magnitude, z/magnitude);
+	    }
+	
+	    vect_or negative(){
+		        return vect_or (-x, -y, -z);
+	     }
+	
+	    double dotProduct (Vect v){
+		        return (x*v.getVectX()+ y*v.getVectY() + z*v.getVectZ());
+	    }
+	
+	    vect_or vectMult (double sca){
+	        	return Vect (sca*x, sca*y, sca*z);
+	    }
+    
+    
 };

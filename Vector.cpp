@@ -4,63 +4,101 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
+
+#include <math.h>
  
- // vector is taken by the library vector.h, we can't use that name for this
-public class vect_or
-{
+class Vect
+{    
+    public:
+    
+        Vect(float x, float y, float z)
+        {
+            this->x = x;
+            this->y = y;
+            this->z = z;
+        }
+
+        // Default contructor, all 0
+        Vect()
+        {
+            this->x = 0.0;
+            this->y = 0.0;
+            this->z = 0.0;
+        }
+       
+    
+        Vect add(Vect* v)
+        {
+            return Vect(this->x + v->getX(), this->y + v->getY(), this->z + v->getZ());
+        }
+    
+        Vect sub(Vect* v)
+        {
+            return Vect(this->x - v->getX(), this->y - v->getY(), this->z - v->getZ());
+        }
+
+    	Vect crossProd (Vect* v)
+        {
+            return Vect((this->y * v->getZ()) - (this->z * v->getY()), 
+					    (this->z * v->getX()) - (this->x * v->getZ()), 
+					    (this->x * v->getY()) - (this->y * v->getX()));
+	    }
+    
+        float length()
+        {
+            return (float)sqrt((x*x) + (y*y) + (z*z));
+        }
+     
+        Vect normalize()
+        {
+            float mag = this->length();
+		    return Vect(this->x/mag, this->y/mag, this->z/mag);
+	    }
+	
+	    Vect negative()
+        {
+            return Vect(-(this->x), -(this->y), -(this->z));
+	    }
+	
+	    float dotProduct(Vect* v){
+            return ((this->x * v->getX()) + (this->y * v->getY()) + (this->z * v->getZ()));
+	    }
+	
+	    Vect vectMult(float sca){
+            return Vect (sca * this->x, sca * this->y, sca * this->z);
+	    }
+        
+        void setX(float x)
+        {
+            this->x = x;
+        }
+        
+        void setY(float y)
+        {
+            this->y = y;
+        }
+        
+        void setZ(float Z)
+        {
+            this->z = z;
+        }
+        
+        float getX()
+        {
+            return this->x;
+        }
+        
+        float getY()
+        {
+            return this->y;
+        }
+        
+        float getZ()
+        {
+            return this->z;
+        }
+        
     // The X, Y and Z components of the vector
     private:
         float x, y, z;
-    
-    // Have to make a default constructor to affect the methods better
-    public:
-    
-    vect_or(float x, float y, float z)
-    {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-    
-    // Syntax corrections
-    
-    vect_or add(vect_or v)
-    {
-        return vect_or(this.x + v.getX(), this.y + v.getY(), this.z + v.getZ());
-    }
-    
-    vect_or sub(vect_or v)
-    {
-        return vect_or(this.x - v.getX(), this.y - v.getY(), this.z - v.getZ());
-    }
-    // need cross, dot, length, transform
-    // Took care of the other methods
-    	vect_or crossProd (vect_or v){
-		      return Vect ( y*v.getZ() - z*v.getY(), 
-					                 z*v.getX() - x*v.getZ(), 
-					                 x*v.getY() - y*v.getX());
-	    }
-    
-     double length(){
-        return sqrt(x*x + y*y + z*z);
-     }
-     
-     vect_or normalize(){
-		      double magnitude = sqrt((x*x)+(y*y)+(z*z));
-		      return vect_or (x/magnitude, y/magnitude, z/magnitude);
-	    }
-	
-	    vect_or negative(){
-		        return vect_or (-x, -y, -z);
-	     }
-	
-	    double dotProduct (Vect v){
-		        return (x*v.getVectX()+ y*v.getVectY() + z*v.getVectZ());
-	    }
-	
-	    vect_or vectMult (double sca){
-	        	return Vect (sca*x, sca*y, sca*z);
-	    }
-    
-    
 };

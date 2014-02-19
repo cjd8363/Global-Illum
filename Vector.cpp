@@ -12,7 +12,7 @@ public class vect_or
     private:
         float x, y, z;
     
-    
+    // Have to make a default constructor to affect the methods better
     public:
     
     vect_or(float x, float y, float z)

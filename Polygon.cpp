@@ -5,26 +5,38 @@
  * @author Jorge Leon
  */
  
-public class Polygon : public Object
+#include "Object.h"
+ 
+class Polygon : public Object
 {
-    private Point[] vertices;
+private:
     
-    private Vector[] normals;
-  
+    Point[] vertices;
+    
+    Vect[] norms;
+    
+public:
+    
     // Maybe not correct
-    public Polygon(Point[] pts, Vector[] norms, char* material):
+    Polygon(Point[] pts, Vect[] norms, char* material) :
         Object(material)
     {
-        this.vertices = pts;
-        this.norms = norms;
+        this->vertices = pts;
+        this->norms = norms;
     }
     
     // No material provided constructor needed
     // Getters, Setters
     
     
-    public Point* intersect(Ray ray)
+    Point* intersect(Ray ray)
     {
-        
+        Color c = Color(0.0f, 0.0f, 0.0f);
+        Point* p = new Point(0.0f, 0.0f, 0.0f, &c);
+        return p;
+    }
+    
+    void transform(Matrix matrix)
+    {
     }
 };

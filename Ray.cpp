@@ -4,38 +4,31 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
+
+#include "Ray.h"
  
-public class Ray
+Ray::Ray(Point* pnt, Vect* dir)
 {
-    // The point of origin
-    private Point* origin;
-    
-    // The direction of the array
-    private Vector* direction;
-    
-    public Ray(Point* pnt, Vector* dir)
-    {
-        this.origin = pnt;
-        this.direction = dir;
-    }
-    
-    public Point* getOrigin()
-    {
-        return this.origin;
-    }
-    
-    public Vector* getDirection()
-    {
-        return this.direction;
-    }
-    
-    public void setOrigin(Point* pnt)
-    {
-        this.origin = pnt;
-    }
-    
-    public void setDirection(Vector* vect)
-    {
-        this.direction = vect;
-    }
-};
+    this->origin = pnt;
+    this->direction = dir;
+}
+
+Point* Ray::getOrigin()
+{
+    return this->origin;
+}
+
+Vect* Ray::getDirection()
+{
+    return this->direction;
+}
+
+void Ray::setOrigin(Point* pnt)
+{
+    this->origin = pnt;
+}
+
+void Ray::setDirection(Vect* vect)
+{
+    this->direction = vect;
+}

@@ -5,31 +5,33 @@
  * @author Jorge Leon
  */
  
+#include "Object.h"
+ 
 class Sphere : public Object 
 {
+private:
     //radius of the sphere
-    private float raidus;
+    float radius;
     
     //center of sphere
-    private Point* center;
+    Point* center;
     
-    public Sphere(float rad, Point* center)
-    {
-        //May be incorrect
-        Sphere(rad, center, "");
-    }
+public:
     
-    public Sphere(float rad, Point* center, char* material) :
+    Sphere(float rad, Point* center, char* material) :
         Object(material)
     {
-        this.radius = rad;
-        this.center = center;
+        this->radius = rad;
+        this->center = center;
     }
     
     //Returns null if no intersection
-    public Point intersect(Ray ray)
+    Point* intersect(Ray ray)
     {
         //TODO
+        Color c = Color(0.0f, 0.0f, 0.0f);
+        Point* p = new Point(0.0f, 0.0f, 0.0f, &c);
+        return p;
     }
     
 };

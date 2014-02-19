@@ -6,38 +6,30 @@
  * @author Jorge Leon
  */
  
+#include "Pixel.h"
  
- public class Pixel
+ Pixel::Pixel(Point* pos, Color* col)
  {
-     //The position of the pixel
-     private Point* position;
+     this->position = pos;
+     this->color = col;
+ }
      
-     //The color of the pixel
-     private Color* color;
-     
-     public Pixel(Point* pos, Color* col)
-     {
-         this.position = pos;
-         this.color = col;
-     }
-     
-     public Point* getPosition()
-     {
-         return this.position;
-     }
-     
-     public Color* getColor()
-     {
-         return this.Color;
-     }
-     
-     public void setPosition(Position* pos)
-     {
-         this.position = pos;
-     }
-     
-     public void setColor(Color* col)
-     {
-         this.color = col;
-     }
- };
+ Point* Pixel::getPosition()
+ {
+     return this->position;
+ }
+ 
+ Color* Pixel::getColor()
+ {
+     return this->color;
+ }
+ 
+ void Pixel::setPosition(Point* pos)
+ {
+     this->position = pos;
+ }
+ 
+ void Pixel::setColor(Color* col)
+ {
+     this->color = col;
+ }

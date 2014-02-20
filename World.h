@@ -18,7 +18,7 @@ using namespace std;
 class World
 {
 private:
-     
+      
      // The background color of the world;
      Color* bgColor;
   

@@ -8,7 +8,7 @@
  
 #include "Point.h"
  
-Point::Point(float x, float y, float z, Color* c)
+Point::Point(float x, float y, float z, Color* c) 
 {
     this->x = x;
     this->y = y;

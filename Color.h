@@ -1,14 +1,12 @@
 /* 
  * Basic Ray Tracer Component for Hw1
  * Class for colors used for pixels
- * @author Charlene DiMeglio
+ * @author Charlene DiMeglio 
  * @author Jorge Leon
  */
 #ifndef COLOR_H
 #define COLOR_H
-
-#include <cstdio>  // Library required for the savebmp fwrite, fopen functions
-#include <cmath>   // Library required for the savebmp floor function 
+ 
 class Color
 {
 private:
@@ -37,7 +35,5 @@ public:
     void setGreen(float green);
     
     void setBlue(float blue);
-	
-	void savebmp(const char *filename, int w, int h, int dpi, Color *data);
 };
 #endif

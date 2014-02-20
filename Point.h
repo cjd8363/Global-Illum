@@ -34,7 +34,7 @@ private:
     //Z position
     float z;
     
-public:
+public: 
         
     Point(float x, float y, float z, Color* c);
     

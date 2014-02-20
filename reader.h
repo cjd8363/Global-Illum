@@ -6,7 +6,7 @@
 #include <string>
 #include <cstring>
 #include <sstream>
-  
+
 /*
 	Extract strings from text file specified by char* location
 */
@@ -22,4 +22,5 @@ float stringToNumber (const std::string &Text);
 	converts strings into float.
 */
 std::vector<float> dimensions (std::string &sample);
-#endif
+
+#endif 

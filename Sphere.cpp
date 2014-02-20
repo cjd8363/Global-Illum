@@ -21,5 +21,5 @@ Point* Sphere::Object::intersect(Ray ray)
     Color c = Color(0.0f, 0.0f, 0.0f);
     Point* p = new Point(0.0f, 0.0f, 0.0f, &c);
     return p;
-}
+} 
  

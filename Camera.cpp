@@ -83,4 +83,4 @@ void Camera::render(World* world, vector< vector<Pixel*> >* pixels)
           //  }
        // }
    // }
-}
+} 

@@ -1,5 +1,5 @@
 /* 
- * Basic Ray Tracer Component for Hw1
+ * Basic Ray Tracer Component for Hw1 
  * Class to represent vectors
  * @author Charlene DiMeglio
  * @author Jorge Leon

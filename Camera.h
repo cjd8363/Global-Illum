@@ -2,7 +2,7 @@
  * Basic Ray Tracer Component for Hw1
  * The Camera object for the scene
  * @author Charlene DiMeglio
- * @author Jorge Leon
+ * @author Jorge Leon 
  */
 
 #include "World.h"

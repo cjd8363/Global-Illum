@@ -7,7 +7,7 @@
  
 #include "World.h"
  
- World::World(float height, float width, Color* bg)
+ World::World(float height, float width, Color* bg) 
  {
      this->height = height;
      this->width = width;

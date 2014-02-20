@@ -1,6 +1,6 @@
 /* 
  * Basic Ray Tracer Component for Hw1
- * Class representing one pixel, in
+ * Class representing one pixel, in 
  * its color and position relative to camera
  * @author Charlene DiMeglio
  * @author Jorge Leon

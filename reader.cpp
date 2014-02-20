@@ -12,7 +12,7 @@ std::vector<std::string> getInfo (char* aloc){
 	}
 	
 	while(!fileOpen.eof()){
-		fileOpen.getline(buffer,40);
+		fileOpen.getline(buffer,40); 
 		infoStruct.push_back(buffer);
 	}
 	return infoStruct;

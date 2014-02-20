@@ -1,4 +1,4 @@
-#include "reader.h"
+#include "Reader.h"
 
 std::vector<std::string> getInfo (char* aloc){
 	std::vector<std::string> infoStruct;
@@ -18,7 +18,7 @@ std::vector<std::string> getInfo (char* aloc){
 	return infoStruct;
 }
 
-float StringToNumber (const std::string &Text){
+float stringToNumber (const std::string &Text){
 	std::stringstream ss(Text);
 	float result;
 	return ss >> result ? result : 0;
@@ -31,10 +31,10 @@ std::vector<float> dimensions (std::string &sample){
 	
 	while ((pos = sample.find(delim)) != (std::string::npos)){
 		std::string token = sample.substr(0,pos);
-		result.push_back(StringToNumber(token));
+		result.push_back(stringToNumber(token));
 		sample.erase(0, pos + delim.length());
 	} 
 
-	result.push_back(StringToNumber(sample));
+	result.push_back(stringToNumber(sample));
 	return result;
 }

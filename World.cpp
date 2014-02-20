@@ -7,9 +7,10 @@
  
 #include "World.h"
  
- World::World(Color* bg, int numObjs)
+ World::World(float height, float width, Color* bg)
  {
-     this->objs = vector<Object*>(numObjs); 
+     this->height = height;
+     this->width = width;
      this->bgColor = bg;
  }
  

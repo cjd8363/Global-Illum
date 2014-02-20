@@ -5,6 +5,10 @@
  * @author Jorge Leon
  */
 
+ 
+#ifndef OBJECT_H
+#define OBJECT_H
+ 
 #include "Ray.h"
  
 class Object
@@ -22,3 +26,5 @@ public:
     
     virtual void transform(Matrix matrix);
 };
+
+#endif

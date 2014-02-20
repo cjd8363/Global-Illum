@@ -24,10 +24,20 @@ private:
   
 public:
     
+    // Height of the view plane
+    float height;
+    
+    // Width of the view plane
+    float width;
+    
+    // Array of pixels in view plane
+    vector< vector <Pixel> > pixels;
+    
+    
      // The objects in the world
      vector<Object*> objs;
      
-     World(Color* bg, int numObjs);
+     World(float height, float width, Color* bg);
      
      // Adds pointer to obj to objList
      void addObj(Object* obj);

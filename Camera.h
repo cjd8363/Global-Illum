@@ -29,6 +29,14 @@ public:
     
     Camera(Point* pos, Point* lookAt, Point* up, float focalLen);
     
+    Point* getUp();
+    
+    Point* getLookAt();
+    
+    Point* getPosition();
+    
+    float getFocalL();
+    
     //Takes the world, which has been transformed into camera space,
     //Spawns Rays, and shoots them into the world through the given pixels
     void render(World* world, vector< vector<Pixel*> >* pixels);

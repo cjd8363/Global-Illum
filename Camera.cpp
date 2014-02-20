@@ -21,10 +21,50 @@ Camera::Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
     this->focalL = focalLen;
 }
 
+Point* Camera::getLookAt()
+{
+    return this->lookAt;
+}
+    
+Point* Camera::getPosition()
+{
+    return this->position;
+}
+   
+Point* Camera::getUp()
+{
+    return this->up;
+}
+
+float Camera::getFocalL()
+{
+    return this->focalL;
+}
+
+
 //Takes the world, which has been transformed into camera space,
 //Spawns Rays, and shoots them into the world through the given pixels
 void Camera::render(World* world, vector< vector<Pixel*> >* pixels)
 {
+    /*
+    float pX = 1;
+    float pY = 1;
+    float x = -(rayTray.width/2)+(pX/2);
+    float y = -(rayTray.height/2)+(pX/2);
+    float z = cam.getFocalL();
+    float startX = x;
+    
+    for (int i = 0; i < rayTray.height; i++)
+    {
+        vector<Pixel> pixLine;
+        
+        for (int j = 0; j < rayTray.width; j++)
+        {
+            pixLine.push_back(Pixel());
+        }
+        //rayTray.pixels.push_back();
+    }
+    */
 //  vector<Ray>* rays = world->spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
    // for (int i = 0; i < rays->size(); i++)
     //{

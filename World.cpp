@@ -32,7 +32,7 @@
  }
  
  // Given the pixels, create rays from the camera to pixel
- vector<Ray> World::spawn(vector<Pixel[]> pixels)
+ vector<Ray> World::spawn(vector< vector<Pixel> > pixels)
  {
      //TO DO
  }

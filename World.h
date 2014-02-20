@@ -39,7 +39,7 @@ public:
      void transformAllObjs(Matrix m);
      
      // Given the pixels, create rays from the camera to pixel
-     vector<Ray> spawn(vector<Pixel[]> pixels);
+     vector<Ray> World::spawn(vector< vector<Pixel> > pixels);
      
      
  };

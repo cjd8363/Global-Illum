@@ -32,8 +32,9 @@ public:
         this->width = width;
     }
     
-    
-    void main(int argc, char** argv)
+};
+ 
+    int main(int argc, char** argv)
     {
       // Height and Width of image
       // Camera Specs (position lookat and up)
@@ -49,9 +50,8 @@ public:
       // Need matrix still
   // world.transformAll(Matrix m);
  //  cam.render(world);
+        return 0;
     }
-};
- 
  
  
 

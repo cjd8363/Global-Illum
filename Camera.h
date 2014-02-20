@@ -31,5 +31,5 @@ public:
     
     //Takes the world, which has been transformed into camera space,
     //Spawns Rays, and shoots them into the world through the given pixels
-    void render(World* world, vector< vector<Pixel> >* pixels);
+    void render(World* world, vector< vector<Pixel*> >* pixels);
 };

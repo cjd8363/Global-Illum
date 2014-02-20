@@ -23,7 +23,7 @@ Camera::Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
 
 //Takes the world, which has been transformed into camera space,
 //Spawns Rays, and shoots them into the world through the given pixels
-void Camera::render(World* world, vector< vector<Pixel> >* pixels)
+void Camera::render(World* world, vector< vector<Pixel*> >* pixels)
 {
 //  vector<Ray>* rays = world->spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
    // for (int i = 0; i < rays->size(); i++)

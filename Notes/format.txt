@@ -1,0 +1,10 @@
+// FILE format
+
+950, 450 // Height and Width of image
+8.44, -0.56, 3.08 // Cam position X, Y, Z
+0, 0, 0 // Camera lookAt   X, Y, Z
+0, 0, 0 // Camera Up     X, Y, Z
+0.4, 0.1, 0.5 // world attributes
+31, 1.6, 1.35, 1.22, 1.48 // Object sphere (31), radius, position: X, Y, Z
+31, 1.6, 5.02, -0.61, 1.96 // Object sphere (31), radius, position: X, Y, Z
+21, 8.062, 8.062, 0.06, 0, 0       // Object plane (21), height, width, position: X, Y, Z 

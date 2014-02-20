@@ -1,8 +1,5 @@
 #include "reader.h"
 
-/*
-
-*/
 std::vector<std::string> getInfo (char* aloc){
 	std::vector<std::string> infoStruct;
 	std::ifstream fileOpen;
@@ -21,18 +18,12 @@ std::vector<std::string> getInfo (char* aloc){
 	return infoStruct;
 }
 
-/*
-
-*/
 float StringToNumber (const std::string &Text){
 	std::stringstream ss(Text);
 	float result;
 	return ss >> result ? result : 0;
 }
 
-/*
-
-*/
 std::vector<float> dimensions (std::string &sample){
 	std::string delim = ",";
 	size_t pos = 0;

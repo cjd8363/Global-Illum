@@ -21,7 +21,7 @@ private:
     float width;
     
     // Array of pixels in view plane
-    vector<Pixel[]> pixels;
+    vector< vector <Pixel> > pixels;
     
 public:
     

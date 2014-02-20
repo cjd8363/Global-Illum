@@ -11,14 +11,14 @@ class Polygon : public Object
 {
 private:
     
-    Point[] vertices;
+    Point* vertices;
     
-    Vect[] norms;
+    Vect* norms;
     
 public:
     
     // Maybe not correct
-    Polygon(Point[] pts, Vect[] norms, char* material) :
+    Polygon(Point* pts, Vect* norms, char* material) :
         Object(material)
     {
         this->vertices = pts;

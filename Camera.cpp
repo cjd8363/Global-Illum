@@ -6,15 +6,14 @@
  */
 
 #include "Camera.h"
-#include "Point.h"
- 
+
 //Inits the focal length to 1 if not provided
-Camera(Point* pos, Point* lookAt, Point* up)
+Camera::Camera(Point* pos, Point* lookAt, Point* up)
 {
     Camera(pos, lookAt, up, 1.0);
 }
 
-Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
+Camera::Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
 {
     this->lookAt = lookAt;
     this->position = pos;
@@ -24,7 +23,7 @@ Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
 
 //Takes the world, which has been transformed into camera space,
 //Spawns Rays, and shoots them into the world through the given pixels
-void render(World* world, vector<Pixel[]>* pixels)
+void Camera::render(World world, vector<Pixel[]> pixels)
 {
 //  vector<Ray>* rays = world->spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
    // for (int i = 0; i < rays->size(); i++)

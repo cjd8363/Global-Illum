@@ -42,6 +42,7 @@ float Camera::getFocalL()
     return this->focalL;
 }
 
+// Calculate the view matrix with camera's current qualities
 void Camera::calcViewMatrix()
 {
     Vect n = Vect(this->lookAt->getX() - this->position->getX(), this->lookAt->getY() - this->position->getY(), this->lookAt->getZ() - this->position->getZ());
@@ -56,7 +57,6 @@ void Camera::calcViewMatrix()
     size_t row = 4;
     size_t col = 4;
     this->viewMatrix = fMatrix(row, col, vArray);
-    
 }
     
 fMatrix* Camera::getViewMatrix()
@@ -66,44 +66,40 @@ fMatrix* Camera::getViewMatrix()
 
 
 //Takes the world, which has been transformed into camera space,
-//Spawns Rays, and shoots them into the world through the given pixels
+//Spawns Rays, and shoots them into the world
 void Camera::render(World* world)
 {
-    /*
     float pX = 1;
     float pY = 1;
-    float x = -(rayTray.width/2)+(pX/2);
-    float y = -(rayTray.height/2)+(pX/2);
-    float z = cam.getFocalL();
+    float x = -(world->width/2)+(pX/2);
+    float y = -(world->height/2)+(pX/2);
+    float z = this->getFocalL();
     float startX = x;
     
-    for (int i = 0; i < rayTray.height; i++)
+    for (int i = 0; i < world->height; i++)
     {
-        vector<Pixel> pixLine;
-        
-        for (int j = 0; j < rayTray.width; j++)
+        x = startX;
+        for (int j = 0; j < world->width; j++)
         {
-            pixLine.push_back(Pixel());
+            for(int k = 0; k < world->objs.size(); k++)
+            {
+                Point ori = Point(0,0,0,world->bgColor);
+                Vect vec = Vect(x,y,z);
+                Vect nVec = vec.normalize();
+                Ray ray = Ray(&ori,&nVec);
+                Point* p = world->objs.at(k)->intersect(&ray);
+                Point pixPos = Point(x,y,z, p->getColor()); 
+                if (p != NULL)
+                {
+                    world->pixels.at(i).at(j) = Pixel(&pixPos,p->getColor());
+                }
+                else
+                {
+                    world->pixels.at(i).at(j) = Pixel(&pixPos,world->bgColor);
+                }
+            }
+            x+=pX;
         }
-        //rayTray.pixels.push_back();
+        y+=pY;
     }
-    */
-//  vector<Ray>* rays = world->spawn(pixels); //(makes a ray, one for each camera to pixel possibility)
-   // for (int i = 0; i < rays->size(); i++)
-    //{
-      //  for (int j = 0; j < world->objs->size(); j++)
-       // {
-        //    Point* p = world->objs[j]->intersect(rays[i]);
-         //   if (p != NULL)
-            //{
-            //pixels[pixels.size()/i][pixels.size()%i]->setColor(p->getColor());
-                
-                // OLD v
-                //grab rgb of intersection point and apply color to pixel
-                // For now, just simple flat application of sphere's color, independent of point
-                //sorta
-                //pixels[pixels.length/i][pixels.length%i]->setColor(obj[j]->getColor());
-          //  }
-       // }
-   // }
 } 

@@ -24,7 +24,7 @@ public:
     // Getters, Setters
     
     
-    Point* intersect(Ray ray);
+    Point* intersect(Ray* ray);
     
     void transform(fMatrix* matrix);
 };

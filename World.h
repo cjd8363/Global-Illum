@@ -20,10 +20,11 @@ class World
 {
 private:
       
-     // The background color of the world;
-     Color* bgColor;
   
 public:
+    
+     // The background color of the world;
+     Color* bgColor;
     
     // Height of the view plane
     float height;

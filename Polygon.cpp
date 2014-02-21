@@ -18,7 +18,7 @@ Polygon::Polygon(Point* pts, char* material) :
 // Getters, Setters
 
 
-Point* Polygon::intersect(Ray ray)
+Point* Polygon::intersect(Ray* ray)
 {
     Color c = Color(0.0f, 0.0f, 0.0f);
     Point* p = new Point(0.0f, 0.0f, 0.0f, &c);

@@ -26,7 +26,7 @@ public:
     }
 
     // Virtual function for the intersection of the object with given ray
-    virtual Point* intersect(Ray ray) = 0;
+    virtual Point* intersect(Ray* ray) = 0;
     
     virtual void transform(fMatrix* matrix) = 0;
 };

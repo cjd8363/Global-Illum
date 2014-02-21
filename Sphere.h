@@ -21,7 +21,7 @@ public:
     Sphere(float rad, Point* center, char* material);
     
     //Returns null if no intersection
-    Point* intersect(Ray ray);
+    Point* intersect(Ray* ray);
     
     void transform(fMatrix* matrix);
     

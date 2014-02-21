@@ -15,7 +15,7 @@ Sphere::Sphere(float rad, Point* center, char* material) :
 }
 
 //Returns null if no intersection
-Point* Sphere::intersect(Ray ray)
+Point* Sphere::intersect(Ray* ray)
 {
     //TODO
     Color c = Color(0.0f, 0.0f, 0.0f);

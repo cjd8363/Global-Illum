@@ -10,7 +10,8 @@
 #define OBJECT_H
  
 #include "Ray.h"
- 
+typedef techsoft::matrix<float> fMatrix;
+
 class Object
 {
 protected:
@@ -19,12 +20,15 @@ protected:
     
 public:
     
-    Object(char* material);
-    
+    Object(char* material)
+    {
+        this->material = material;
+    }
+
     // Virtual function for the intersection of the object with given ray
     virtual Point* intersect(Ray ray) = 0;
     
-    virtual void transform(Matrix matrix);
+    virtual void transform(fMatrix* matrix) = 0;
 };
 
 #endif

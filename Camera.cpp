@@ -19,6 +19,7 @@ Camera::Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
     this->position = pos;
     this->up = up;
     this->focalL = focalLen;
+    this->calcViewMatrix();
 }
 
 Point* Camera::getLookAt()
@@ -41,10 +42,32 @@ float Camera::getFocalL()
     return this->focalL;
 }
 
+void Camera::calcViewMatrix()
+{
+    Vect n = Vect(this->lookAt->getX() - this->position->getX(), this->lookAt->getY() - this->position->getY(), this->lookAt->getZ() - this->position->getZ());
+    Vect up = Vect(this->up->getX(), this->up->getY(), this->up->getZ());
+    Vect v = n.crossProd(&up);
+    Vect u = v.crossProd(&n);
+    Vect nn = n.normalize();
+    Vect vn = v.normalize();
+    Vect un = u.normalize();
+    Vect pos = Vect(this->position->getX(), this->position->getY(), this->position->getZ());
+    float vArray[] = {u.getX(), u.getY(), u.getZ(), -(u.dotProduct(&pos)), v.getX(), v.getY(), v.getZ(), -(v.dotProduct(&pos)), n.getX(), n.getY(), n.getZ(), -(n.dotProduct(&pos)), 0.0, 0.0, 0.0, 1.0};
+    size_t row = 4;
+    size_t col = 4;
+    this->viewMatrix = fMatrix(row, col, vArray);
+    
+}
+    
+fMatrix* Camera::getViewMatrix()
+{
+    return &(this->viewMatrix);
+}
+
 
 //Takes the world, which has been transformed into camera space,
 //Spawns Rays, and shoots them into the world through the given pixels
-void Camera::render(World* world, vector< vector<Pixel*> >* pixels)
+void Camera::render(World* world)
 {
     /*
     float pX = 1;

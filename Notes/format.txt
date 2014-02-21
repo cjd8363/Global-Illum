@@ -7,4 +7,4 @@
 0.4, 0.1, 0.5 // world attributes
 31, 1.6, 1.35, 1.22, 1.48 R G B // Object sphere (31), radius, position: X, Y, Z
 31, 1.6, 5.02, -0.61, 1.96 R G B // Object sphere (31), radius, position: X, Y, Z
-21, 8.062, 8.062, 0.06, 0, 0 RGB    // Object plane (21), height, width, position: X, Y, Z 
+21, Vx1, Vy1, Vz1, Vx2, Vy2, Vy3, Vx3, vy3, vz3 R G B    // Object plane (21), position: X, Y, Z 

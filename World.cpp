@@ -24,7 +24,7 @@
  //Not sure what this function is about
  //public void transform();
  
- void World::transformAllObjs(Matrix m)
+ void World::transformAllObjs(fMatrix* m)
  {
      for (int i = 0; i < this->objs.size(); i++)
      {

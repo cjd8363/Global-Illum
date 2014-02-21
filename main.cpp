@@ -12,6 +12,7 @@
 #include "Camera.h"
 #include "Reader.h"
 #include "Sphere.h"
+#include "Polygon.h"
  
  
 int main(int argc, char** argv)
@@ -51,17 +52,24 @@ int main(int argc, char** argv)
             Point center = Point(data.at(i).at(2),data.at(i).at(3),data.at(i).at(4), &color);
             char temp = 'a';
             Sphere s = Sphere(data.at(i).at(1), &center, &temp);
+            world.addObj(&s);
         }
         if (data.at(i).at(0) == 21.0)
         {
-            
+            Color color = Color(data.at(i).at(10),data.at(i).at(11),data.at(i).at(12));
+            Point v1 = Point(data.at(i).at(1),data.at(i).at(2),data.at(i).at(3), &color);
+            Point v2 = Point(data.at(i).at(4),data.at(i).at(5),data.at(i).at(6), &color);
+            Point v3 = Point(data.at(i).at(7),data.at(i).at(8),data.at(i).at(9), &color);
+            Point pts[3] = {v1,v2,v3};
+            char temp = 'a'; 
+            Polygon p = Polygon(pts, &temp);
+            world.addObj(&p);
+            world.transformAllObjs(cam.getViewMatrix());
+            cam.render(&world);
         }
     }
-    
-    
-    //Place Objects in world
-    //Transform to Camera Space
-    //Render
+
+        
     //Output to file
     
     

@@ -23,6 +23,8 @@ private:
     // The focal length of the camera
     float focalL;
     
+    fMatrix viewMatrix;
+    
 public:
     //Inits the focal length to 1 if not provided
     Camera(Point* pos, Point* lookAt, Point* up);
@@ -35,9 +37,13 @@ public:
     
     Point* getPosition();
     
+    void calcViewMatrix();
+    
+    fMatrix* getViewMatrix();
+    
     float getFocalL();
     
     //Takes the world, which has been transformed into camera space,
     //Spawns Rays, and shoots them into the world through the given pixels
-    void render(World* world, vector< vector<Pixel*> >* pixels);
+    void render(World* world);
 };

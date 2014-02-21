@@ -23,5 +23,7 @@ public:
     //Returns null if no intersection
     Point* intersect(Ray ray);
     
+    void transform(fMatrix* matrix);
+    
 };
  

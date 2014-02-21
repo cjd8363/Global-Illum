@@ -37,6 +37,7 @@ public:
     
     Point* getPosition();
     
+    // Calculate the view matrix with the current camera attributes
     void calcViewMatrix();
     
     fMatrix* getViewMatrix();
@@ -44,6 +45,6 @@ public:
     float getFocalL();
     
     //Takes the world, which has been transformed into camera space,
-    //Spawns Rays, and shoots them into the world through the given pixels
+    //Spawns Rays, and shoots them into the world
     void render(World* world);
 };

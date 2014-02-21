@@ -6,25 +6,26 @@
  */
  
 #include "Object.h" 
- 
+#include <vector>
+
 class Polygon : public Object
 {
 private:
     
-    Point* vertices;
+    // The verticies of this triangle
+    std::vector<Point> vertices;
     
+    // The normal for this triangle
     Vect norm;
     
 public:
     
     // Maybe not correct
-    Polygon(Point* pts, char* material);
+    Polygon(Point pts[], char* material);
     
-    // No material provided constructor needed
-    // Getters, Setters
-    
-    
+    // Checks if ray intersects with this
     Point* intersect(Ray* ray);
     
+    // Moves this according to the given polygon
     void transform(fMatrix* matrix);
 };

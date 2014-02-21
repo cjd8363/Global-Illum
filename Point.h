@@ -3,7 +3,6 @@
  * Point class
  * @author Charlene DiMeglio
  * @author Jorge Leon
- * NOT FINISHED
  */
 
 #ifndef POINT_H
@@ -13,11 +12,13 @@
 #include "Color.h"
 #include "cmatrix.h"
 
-typedef techsoft::matrix<double> Matrix;
 
+typedef techsoft::matrix<double> Matrix;
+typedef techsoft::matrix<float> fMatrix;
 typedef std::complex<double> dComplex;
 typedef techsoft::matrix<dComplex> CMatrix;
- 
+typedef techsoft::valarray<float> Vector;
+
 class Point
 {
 private:
@@ -41,11 +42,7 @@ public:
     // Returns distance to given point
     float distance(Point point);
     
-    //SHELL
-    //Given a matrix, tranform the given point 
-    // THOUGHT: I think this should just be a vector.
-    //          We don't rotate or scale points.
-    Point* transform(Matrix matrix);
+    void transform(fMatrix* matrix);
     
     float getX();
     

@@ -3,7 +3,6 @@
  * Point class
  * @author Charlene DiMeglio
  * @author Jorge Leon
- * NOT FINISHED
  */
  
 #include "Point.h"
@@ -22,15 +21,16 @@ float Point::distance(Point point)
   return (float)sqrt((float)pow((this->x - point.getX()),2)+(float)pow((this->y - point.getY()),2)+(float)pow((this->z - point.getZ()),2)); 
 }
 
-//SHELL
-//Given a matrix, tranform the given point 
-// THOUGHT: I think this should just be a vector.
-//          We don't rotate or scale points.
-Point* Point::transform(Matrix matrix)
+void Point::transform(fMatrix* matrix)
 {
-    Color c = Color(0.0f, 0.0f, 0.0f);
-    Point* p = new Point(0.0f, 0.0f, 0.0f, &c);
-    return p;
+    float old[] = {this->x, this->y, this->z, 0};
+    Vector vOld(old, 4);
+    Vector newer = *matrix * vOld; 
+    this->setX(newer[0]);
+    
+    this->setY(newer[1]);
+    
+    this->setZ(newer[1]);
 }
 
 float Point::getX()

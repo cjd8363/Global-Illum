@@ -23,6 +23,7 @@ public:
     //Returns null if no intersection
     Point* intersect(Ray* ray);
     
+    //Moves sphere according to matrix
     void transform(fMatrix* matrix);
     
 };

@@ -44,15 +44,7 @@ public:
      // Adds pointer to obj to objList
      void addObj(Object* obj);
      
-     //May return back transformed object?
-     //Not sure what this function is about
-     //public void transform();
-     
      void transformAllObjs(fMatrix* m);
-     
-     // Given the pixels, create rays from the camera to pixel
-     vector<Ray> spawn(vector< vector<Pixel> > pixels);
-     
      
  };
  

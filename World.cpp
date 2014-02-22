@@ -41,7 +41,7 @@
         {
             if (lowest!=NULL)
             {
-                float distance = (float)sqrt((float)pow(p->getX(),2)+(float)pow(p->getY(),2)+(float)pow(p->getZ(),2));
+                float distance = p->distance(Point(0,0,0, p->getColor()));
                 if (distance < distanceLOW)
                 {
                     p = lowest;

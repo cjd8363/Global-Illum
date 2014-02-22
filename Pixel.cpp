@@ -1,6 +1,6 @@
 /* 
  * Basic Ray Tracer Component for Hw1
- * Class representing one pixel, in
+ * Class representing one pixel
  * its color and position relative to camera
  * @author Charlene DiMeglio 
  * @author Jorge Leon
@@ -8,7 +8,7 @@
  
 #include "Pixel.h"
  
- // position = position of pixel in worldspace, color = color of pixel
+ // position = position of pixel in camera space, color = color of pixel
  Pixel::Pixel(Point* pos, Color* col)
  {
      this->position = pos;

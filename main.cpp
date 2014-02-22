@@ -17,12 +17,12 @@
  
 int main(int argc, char** argv)
 {
-    if (argc < 1)
+    if (argc < 2)
     {
         printf ("Error opening file");
         exit (EXIT_FAILURE);
     }
-    vector<string> params = getInfo(*argv);
+    vector<string> params = getInfo(argv[1]);
     vector< vector<float> > data;
     for (int i = 0; i < params.size(); i++)
     {

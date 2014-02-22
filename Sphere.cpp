@@ -15,11 +15,11 @@ Sphere::Sphere(float rad, Point* center, char* material) :
 }
 
 //Returns null if no intersection
-Point* intersect(Ray ray)
+Point* Sphere::intersect(Ray* ray)
     {
         // Create rayDirection vector from ray's direction, normalize. 
 		// Since direction is normalized value A becomes 1
-		Vect rayDirection = ray.getDirection()->normalize();
+		Vect rayDirection = ray->getDirection()->normalize();
 	//	*rayDirection.normalize();
 		
 		// Direction variables
@@ -33,9 +33,9 @@ Point* intersect(Ray ray)
 		float cZ = this->center->getZ();
 		
 		// Origin variables 
-		float oX = ray.getOrigin()->getX();
-		float oY = ray.getOrigin()->getY();
-		float oZ = ray.getOrigin()->getZ();
+		float oX = ray->getOrigin()->getX();
+		float oY = ray->getOrigin()->getY();
+		float oZ = ray->getOrigin()->getZ();
 		
 		float B = 2*(dx*(oX-cX)+dy*(oY-cY)+dz*(oZ-cZ));
 		float C = ((oX-cX)*(oX-cX)+(oY-cY)*(oY-cY)+(oZ-cZ)*(oZ-cZ))-((this->radius)*(this->radius));

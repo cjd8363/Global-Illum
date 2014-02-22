@@ -47,9 +47,7 @@ Point* Sphere::intersect(Ray* ray)
 		
 		// If decider is less than 0, no real root, no intersection point
 		if (decider < 0){
-			Color c = Color(0.0f, 0.0f, 0.0f);
-			Point* p = new Point(0.0f, 0.0f, 0.0f, &c);
-			return p;
+			return NULL;
 		}
 		
 		// If decider is more than 0, ray goes through sphere
@@ -61,15 +59,13 @@ Point* Sphere::intersect(Ray* ray)
 			if (root_1 < root_2){
 				float w = root_1;
 				// Color to be modified once the reflection functions are specified.
-				Color c = Color(0.0f, 0.0f, 0.0f);
-				Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, &c);
+				Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
 				return p;
 			}
 			
 			float w = root_2;
 			// Remember to change color
-			Color c = Color(0.0f, 0.0f, 0.0f);
-			Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, &c);
+			Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
 			return p;
 			
 		}
@@ -77,8 +73,7 @@ Point* Sphere::intersect(Ray* ray)
 		// if neither, then decider = 0 so there's intersection and one root
 		float w = -B/2;
 		
-		Color c = Color(0.0f, 0.0f, 0.0f);
-		Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, &c);
+		Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
 		
 		return p;
     }

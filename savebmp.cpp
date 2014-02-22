@@ -66,7 +66,8 @@ void outputer::savebmp(const char *filename, float wf, float hf, int dpi,  std::
             float blue =   (data->at(i).at(j).getColor()->getBlue());
             //cout << red*255 << " " << blue*255 << " "  << green*255 << endl;
             //unsigned char color[3] = {(int)floor(red*255),(int)floor(green*255),(int)floor(blue*255)};
-            int color[3] = {(int)floor(255),(int)floor(0),(int)floor(0)};
+            int color[3] = {(int)floor(red*255),(int)floor(green*255),(int)floor(blue*255)};
+            //int color[3] = {(int)floor(255),(int)floor(0),(int)floor(0)};
             
             fwrite(color,sizeof(int),sizeof(color),f);	
         }

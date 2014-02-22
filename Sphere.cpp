@@ -37,7 +37,9 @@ Point* Sphere::intersect(Ray* ray)
 		float oY = ray->getOrigin()->getY();
 		float oZ = ray->getOrigin()->getZ();
 		
+		// B = 2*(dx*(OriginX - CenterX) + dy*(OriginY - CenterY)+ dz*(OriginZ - CenterZ))
 		float B = 2*(dx*(oX-cX)+dy*(oY-cY)+dz*(oZ-cZ));
+		// C = (OriginX - CenterX)^2+(OriginY - CenterY)^2+(OriginZ - CenterZ)^2+(radius)^2
 		float C = ((oX-cX)*(oX-cX)+(oY-cY)*(oY-cY)+(oZ-cZ)*(oZ-cZ))-((this->radius)*(this->radius));
 		 
 		// decider variable provides info about intersection of ray and sphere

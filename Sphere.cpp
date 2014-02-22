@@ -83,5 +83,5 @@ Point* intersect(Ray ray)
 	
 void Sphere::transform(fMatrix* matrix)
 {
-    
+    this->center->transform(matrix);
 }

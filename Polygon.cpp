@@ -8,10 +8,10 @@
 #include "Polygon.h" 
  
 // Maybe not correct
-Polygon::Polygon(Point* pts, char* material) :
+Polygon::Polygon(Point pts[], char* material) :
     Object(material)
 {
-    this->vertices = pts;
+    this->vertices = std::vector<Point>(pts, pts + sizeof(pts)/sizeof(Point));
 }
 
 // No material provided constructor needed
@@ -27,4 +27,8 @@ Point* Polygon::intersect(Ray* ray)
 
 void Polygon::transform(fMatrix* matrix)
 {
+    for (int i = 0; i < this->vertices.size(); i++)
+    {
+        this->vertices.at(i).transform(matrix);
+    }
 }

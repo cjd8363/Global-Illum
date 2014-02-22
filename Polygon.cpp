@@ -7,7 +7,6 @@
  
 #include "Polygon.h" 
  
-// Maybe not correct
 Polygon::Polygon(Point pts[], char* material) :
     Object(material)
 {
@@ -17,7 +16,8 @@ Polygon::Polygon(Point pts[], char* material) :
 // No material provided constructor needed
 // Getters, Setters
 
-
+// Takes in an ray and checks if that ray intersects with the polygon
+// If so, the point of intersection will be returned, otherwise NULL
 Point* Polygon::intersect(Ray* ray)
 {
     Color c = Color(0.0f, 0.0f, 0.0f);
@@ -25,6 +25,7 @@ Point* Polygon::intersect(Ray* ray)
     return p;
 }
 
+// @arg matrix = matrix to transform the polygon with 
 void Polygon::transform(fMatrix* matrix)
 {
     for (int i = 0; i < this->vertices.size(); i++)

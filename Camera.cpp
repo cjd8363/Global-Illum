@@ -71,9 +71,11 @@ fMatrix* Camera::getViewMatrix()
 
 
 //Takes the world, which has been transformed into camera space,
-//Spawns Rays, and shoots them into the world
+//Spawns Rays, and shoots them into the world, recording the 
+//colors returned world.spaw into the pixel array
 void Camera::render(World* world)
 {
+    // Info for where we are in the pixel array
     float pX = 1;
     float pY = 1;
     float x = -(world->width/2)+(pX/2);
@@ -84,19 +86,26 @@ void Camera::render(World* world)
     for (int i = 0; i < world->height; i++)
     {
         x = startX;
+        // For every height we are adding a row of pixels to our pixel container
         vector<Pixel> rowPix;
         for (int j = 0; j < world->width; j++)
         {
+            //Create ray
             Point ori = Point(0,0,0,world->bgColor);
             Vect vec = Vect(x,y,z);
             Vect nVec = vec.normalize();
             Ray ray = Ray(&ori,&nVec);
+            
+            //Send it out into the world
             Point* p = world->trace(&ray);
+            
+            // if we hit something, the current pixel gets the color of the hit point
             if (p != NULL)
             {
                 Point pixPos = Point(x,y,z, p->getColor());
                 rowPix.push_back(Pixel(&pixPos,p->getColor()));
             }
+            // else we default to the background color
             else
             {
                 Point pixPos = Point(x,y,z,world->bgColor);

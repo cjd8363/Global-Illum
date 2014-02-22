@@ -7,7 +7,7 @@
 class outputer
 {
 public:
-    static void savebmp(const char *filename, float wf, float hf, int dpi,  std::vector< std::vector <Pixel> > data);
+    static void savebmp(const char *filename, float wf, float hf, int dpi,  std::vector< std::vector <Pixel> >* data);
 };
 
 #endif

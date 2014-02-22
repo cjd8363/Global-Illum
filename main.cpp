@@ -83,7 +83,7 @@ int main(int argc, char** argv)
     cout << world.width << endl;
     
     
-    outputer::savebmp(argv[2], world.width, world.height, 72, world.pixels);
+    outputer::savebmp(argv[2], world.width, world.height, 72, &world.pixels);
     printf("DONE ");
     
         

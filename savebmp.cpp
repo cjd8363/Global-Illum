@@ -1,14 +1,18 @@
 #include "Outputer.h"
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h>  
+using namespace std;
 
 // Type FILE from library
 // Function fopen, fwrite, fclose from library cstdio
 
-void outputer::savebmp(const char *filename, float wf, float hf, int dpi,  std::vector< std::vector <Pixel> > data){
+void outputer::savebmp(const char *filename, float wf, float hf, int dpi,  std::vector< std::vector <Pixel> >* data){
 	FILE *f;
     int w = (int)wf;
     int h = (int)hf;
 	int k = w * h;
-	int s = 4*k;
+	int s = 12*k;
 	int filesize = 54 + s;
 	
 	float factor = 39.375;
@@ -54,16 +58,17 @@ void outputer::savebmp(const char *filename, float wf, float hf, int dpi,  std::
 	fwrite(bmpfileheader,1,14,f);
 	fwrite(bmpinfoheader,1,40,f);
 	
-	for (int i = 0; i < h; i++){
-        for (int j = 0; j < w; j++)
+	for (int i = 0; i < data->size(); i++){
+        for (int j = 0; j < data->at(i).size(); j++)
         {
-            float red =  	(data[i][j].getColor()->getRed());
-            float green =  (data[i][j].getColor()->getGreen());
-            float blue =   (data[i][j].getColor()->getBlue());
-
-            unsigned char color[3] = {(int)floor(blue),(int)floor(green),(int)floor(red)};
+            float red =  	(data->at(i).at(j).getColor()->getRed());
+            float green =  (data->at(i).at(j).getColor()->getGreen());
+            float blue =   (data->at(i).at(j).getColor()->getBlue());
+            //cout << red*255 << " " << blue*255 << " "  << green*255 << endl;
+            //unsigned char color[3] = {(int)floor(red*255),(int)floor(green*255),(int)floor(blue*255)};
+            int color[3] = {(int)floor(255),(int)floor(0),(int)floor(0)};
             
-            fwrite(color,1,3,f);	
+            fwrite(color,sizeof(int),sizeof(color),f);	
         }
 	}
     printf("BEST");

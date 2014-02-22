@@ -7,7 +7,8 @@
  
 #include "World.h"
 
- 
+ // height and width refers to the pixel container, view pane
+ // bg is a default color
  World::World(float height, float width, Color* bg) 
  {
      this->height = height;
@@ -21,6 +22,7 @@
      this->objs.push_back(obj);
  }
  
+ // m matrix to apply to all objects in world
  void World::transformAllObjs(fMatrix* m)
  {
      for (int i = 0; i < this->objs.size(); i++)
@@ -29,6 +31,9 @@
      }
  }
  
+ // ray Ray to be traced, to be checked for intersections with objects
+ // Returns a point, which is the closest point of intersection with an object
+ // in the world. Will be null if no intersection occurs
  Point* World::trace(Ray* ray)
  {
     
@@ -36,9 +41,11 @@
     float distanceLOW = 100000000;
     for(int k = 0; k < this->objs.size(); k++)
     {
+        // Get intersection point
         Point* p = this->objs.at(k)->intersect(ray);
         if (p!=NULL)
         {
+            // update closest intersection point
             if (lowest!=NULL)
             {
                 float distance = p->distance(Point(0,0,0, p->getColor()));

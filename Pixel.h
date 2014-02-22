@@ -5,7 +5,9 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
- 
+
+#ifndef PIXEL_H
+#define PIXEL_H
 #include "Point.h"
  
 class Pixel
@@ -30,3 +32,5 @@ public:
      
      void setColor(Color* col);
  };
+ 
+  #endif

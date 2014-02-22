@@ -13,6 +13,7 @@
 #include "Reader.h"
 #include "Sphere.h"
 #include "Polygon.h"
+#include "Outputer.h"
  
  
 int main(int argc, char** argv)
@@ -22,7 +23,9 @@ int main(int argc, char** argv)
         printf ("Error opening file");
         exit (EXIT_FAILURE);
     }
+    printf("ENTER");
     vector<string> params = getInfo(argv[1]);
+    printf("INFO");
     vector< vector<float> > data;
     for (int i = 0; i < params.size(); i++)
     {
@@ -41,7 +44,7 @@ int main(int argc, char** argv)
     
     //Create World
     World world = World((data.at(0).at(0)), data.at(0).at(1), &bg);
-    
+    cout << "HIT" << endl;
     //Create Objects
     //TO DO EXTRA: Make so that this sequence is not hardcoded
     for (int i = 5; i < data.size(); i++)
@@ -49,10 +52,12 @@ int main(int argc, char** argv)
         if (data.at(i).at(0) == 31.0)
         {
             Color color = Color(data.at(i).at(5),data.at(i).at(6),data.at(i).at(7));
+            cout << "SPHERE" << endl;
             Point center = Point(data.at(i).at(2),data.at(i).at(3),data.at(i).at(4), &color);
             char temp = 'a';
             Sphere s = Sphere(data.at(i).at(1), &center, &temp);
             world.addObj(&s);
+            
         }
         if (data.at(i).at(0) == 21.0)
         {
@@ -64,11 +69,23 @@ int main(int argc, char** argv)
             char temp = 'a'; 
             Polygon p = Polygon(pts, &temp);
             world.addObj(&p);
-            world.transformAllObjs(cam.getViewMatrix());
-            cam.render(&world);
+            cout << "POLY" << endl;
         }
     }
-
+    printf("ADD ");
+    world.transformAllObjs(cam.getViewMatrix());
+    printf("TRANS ");
+    cam.render(&world);
+    printf("RENDER ");
+    cout << world.pixels.size() << endl;
+    cout << world.pixels.at(0).size() << endl;
+    cout << world.height << endl;
+    cout << world.width << endl;
+    
+    
+    outputer::savebmp(argv[2], world.width, world.height, 72, world.pixels);
+    printf("DONE ");
+    
         
     //Output to file
     

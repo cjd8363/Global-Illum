@@ -6,6 +6,11 @@
  */
 
 #include "Camera.h"
+  #include <string>
+#include <vector>
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
 
 //Inits the focal length to 1 if not provided
 Camera::Camera(Point* pos, Point* lookAt, Point* up)
@@ -79,27 +84,27 @@ void Camera::render(World* world)
     for (int i = 0; i < world->height; i++)
     {
         x = startX;
+        vector<Pixel> rowPix;
         for (int j = 0; j < world->width; j++)
         {
-            for(int k = 0; k < world->objs.size(); k++)
+            Point ori = Point(0,0,0,world->bgColor);
+            Vect vec = Vect(x,y,z);
+            Vect nVec = vec.normalize();
+            Ray ray = Ray(&ori,&nVec);
+            Point* p = world->trace(&ray);
+            if (p != NULL)
             {
-                Point ori = Point(0,0,0,world->bgColor);
-                Vect vec = Vect(x,y,z);
-                Vect nVec = vec.normalize();
-                Ray ray = Ray(&ori,&nVec);
-                Point* p = world->objs.at(k)->intersect(&ray);
-                Point pixPos = Point(x,y,z, p->getColor()); 
-                if (p != NULL)
-                {
-                    world->pixels.at(i).at(j) = Pixel(&pixPos,p->getColor());
-                }
-                else
-                {
-                    world->pixels.at(i).at(j) = Pixel(&pixPos,world->bgColor);
-                }
+                Point pixPos = Point(x,y,z, p->getColor());
+                rowPix.push_back(Pixel(&pixPos,p->getColor()));
+            }
+            else
+            {
+                Point pixPos = Point(x,y,z,world->bgColor);
+                rowPix.push_back(Pixel(&pixPos,world->bgColor));
             }
             x+=pX;
         }
+        world->pixels.push_back(rowPix);
         y+=pY;
     }
 } 

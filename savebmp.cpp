@@ -1,18 +1,17 @@
-#ifndef SAVEBMP_CPP
-#define SAVEBMP_CPP
-
-#include <cstdio>
+#include "Outputer.h"
 
 // Type FILE from library
 // Function fopen, fwrite, fclose from library cstdio
 
-void savebmp(const char *filename, int w, int h, int dpi, RGB_type *data){
+void outputer::savebmp(const char *filename, float wf, float hf, int dpi,  std::vector< std::vector <Pixel> > data){
 	FILE *f;
-	int k = w*h;
+    int w = (int)wf;
+    int h = (int)hf;
+	int k = w * h;
 	int s = 4*k;
 	int filesize = 54 + s;
 	
-	double factor = 39.375;
+	float factor = 39.375;
 	int m = static_cast <int> (factor);
 	
 	int ppm = dpi*m;
@@ -55,18 +54,18 @@ void savebmp(const char *filename, int w, int h, int dpi, RGB_type *data){
 	fwrite(bmpfileheader,1,14,f);
 	fwrite(bmpinfoheader,1,40,f);
 	
-	for (int i = 0; i <k; i++){
-		RGB_type rgb = data[i];
-		
-		double red =  	(data[i].r)*255;
-		double green =  (data[i].g)*255;
-		double blue =   (data[i].b)*255;
+	for (int i = 0; i < h; i++){
+        for (int j = 0; j < w; j++)
+        {
+            float red =  	(data[i][j].getColor()->getRed());
+            float green =  (data[i][j].getColor()->getGreen());
+            float blue =   (data[i][j].getColor()->getBlue());
 
-		unsigned char color[3] = {(int)floor(blue),(int)floor(green),(int)floor(red)};
-		
-		fwrite(color,1,3,f);		
+            unsigned char color[3] = {(int)floor(blue),(int)floor(green),(int)floor(red)};
+            
+            fwrite(color,1,3,f);	
+        }
 	}
+    printf("BEST");
 	fclose(f);
-	
-#endif
 }

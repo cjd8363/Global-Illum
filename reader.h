@@ -6,7 +6,8 @@
 #include <string>
 #include <cstring>
 #include <sstream>
-
+#include <stdlib.h> 
+#include <stdio.h>  
 /*
 	Extract strings from text file specified by char* location
 */

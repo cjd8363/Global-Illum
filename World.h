@@ -46,6 +46,8 @@ public:
      
      void transformAllObjs(fMatrix* m);
      
+     Point* trace(Ray* ray);
+     
  };
  
  #endif

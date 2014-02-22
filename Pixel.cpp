@@ -8,6 +8,7 @@
  
 #include "Pixel.h"
  
+ // position = position of pixel in worldspace, color = color of pixel
  Pixel::Pixel(Point* pos, Color* col)
  {
      this->position = pos;

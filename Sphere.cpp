@@ -14,14 +14,21 @@ Sphere::Sphere(float rad, Point* center, char* material) :
     this->center = center;
 }
 
-//Returns null if no intersection
+/*
+	intersect(Ray* ray) 
+	Returns a point of intersection depending on the direction of the ray and the location of the sphere:
+		-	Null if there's no intersection. P in (0, 0, 0)
+		-	Intersection and ray goes through sphere returns smallest root.
+		-	Intersection and ray does not go through then returns 1 root.
+	Ray* ray			Ray pointer that will have direction and origin information
+	
+*/
 Point* Sphere::intersect(Ray* ray)
     {
         // Create rayDirection vector from ray's direction, normalize. 
 		// Since direction is normalized value A becomes 1
 		Vect rayDirection = ray->getDirection()->normalize();
-	//	*rayDirection.normalize();
-		
+			
 		// Direction variables
 		float dx = rayDirection.getX();
 		float dy = rayDirection.getY();

@@ -1,0 +1,757 @@
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/GNUmakefile netpbm-10.25/GNUmakefile
+--- netpbm-10.25-orig/GNUmakefile	2004-10-16 22:27:50.000000000 +0200
++++ netpbm-10.25/GNUmakefile	2004-11-28 23:00:09.562500000 +0100
+@@ -51,11 +51,12 @@ all package install:
+ 	@echo "Makefile.common to replace \$(CURDIR) with \$(shell /bin/pwd) "
+ else
+ 
+-
+-include Makefile.srcdir
+-BUILDDIR = $(CURDIR)
++CSRCDIR = $(CURDIR)
++CBUILDDIR = $(CURDIR)
++SRCDIR = $(shell pwd | sed -e "s,/cygdrive/k/,k:/,")
++BUILDDIR = ${SRCDIR}
+ SUBDIR = 
+-VPATH=.:$(SRCDIR)
++VPATH=. $(CSRCDIR) $(CSRCDIR)/res
+ 
+ include $(BUILDDIR)/Makefile.config
+ 
+@@ -355,3 +356,10 @@ localdistclean:
+ # The following endif is for the else block that contains virtually the
+ # whole file, for the test of the existence of CURDIR.
+ endif
++
++DIRS:
++	@echo "SRCDIR = $(SRCDIR)"
++	@echo "CURDIR = $(CURDIR)"
++	@echo "VPATH =  $(VPATH)"
++	@echo "CSRCDIR =  $(CSRCDIR)"
++	@echo "CBUILDDIR =  $(CBUILDDIR)"
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/Makefile.common netpbm-10.25/Makefile.common
+--- netpbm-10.25-orig/Makefile.common	2004-10-16 22:25:44.000000000 +0200
++++ netpbm-10.25/Makefile.common	2004-11-28 20:32:59.515625000 +0100
+@@ -167,6 +167,10 @@ $(OBJECTS): %.o: %.c $(HEADERLINKS)
+ 	$(CC) -c -I$(SRCDIR)/$(SUBDIR) -I. $(INCLUDES) -DNDEBUG \
+ 	    $(CPPFLAGS) $(CFLAGS) $(CFLAGS_PERSONAL) $(CADD) -o $@ $<
+ 
++# Rule to make compiled resource (Windows)
++%-res.o: $(SRCDIR)/res/%-res.rc 
++	windres --include-dir $(SRCDIR)/res -i $(SRCDIR)/res/$(<F) -o $@
++
+ # libopt is a utility program used in the make file below.
+ LIBOPT = $(BUILDDIR)/buildtools/libopt
+ 
+@@ -254,10 +258,10 @@ endif
+ # Earlier ones do it regardless of __FAST_MATH__.
+ 
+ MATHLIB ?= -lm
+-$(PORTBINARIES) $(MATHBINARIES): %: %.o $(NETPBMLIB) $(LIBOPT)
++$(PORTBINARIES) $(MATHBINARIES): %: %.o %-res.o $(NETPBMLIB) $(LIBOPT)
+ # Note that LDFLAGS might contain -L options, so order is important.
+ # LDFLAGS is commonly set as an environment variable.
+-	$(LD) -o $@ $@.o $(MATHLIB) `$(LIBOPT) $(NETPBMLIB)` \
++	$(LD) -o $@ $@.o $@-res.o $(MATHLIB) `$(LIBOPT) $(NETPBMLIB)` \
+ 	  $(LDFLAGS) $(LDLIBS) $(RPATH) $(LADD)
+ 
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/Makefile.srcdir netpbm-10.25/Makefile.srcdir
+--- netpbm-10.25-orig/Makefile.srcdir	2002-06-10 05:39:35.000000000 +0200
++++ netpbm-10.25/Makefile.srcdir	2004-11-28 19:29:35.546875000 +0100
+@@ -1 +0,0 @@
+-SRCDIR = $(CURDIR)
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/buildtools/Makefile netpbm-10.25/buildtools/Makefile
+--- netpbm-10.25-orig/buildtools/Makefile	2004-07-23 04:31:35.000000000 +0200
++++ netpbm-10.25/buildtools/Makefile	2004-11-28 20:12:50.343750000 +0100
+@@ -35,7 +35,7 @@ typegen.o endiangen.o:%.o:%.c
+ 	$(CC_FOR_BUILD) -c -o $@ $<
+ 
+ $(PROGS):%:%.o
+-	$(LD_FOR_BUILD) -o $@ $<
++	$(LD_FOR_BUILD) -o $@ $< $(LIBS)
+ 
+ clean: cleanlocal
+ .PHONY: cleanlocal
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/Makefile netpbm-10.25/converter/other/Makefile
+--- netpbm-10.25-orig/converter/other/Makefile	2004-10-16 22:53:14.000000000 +0200
++++ netpbm-10.25/converter/other/Makefile	2004-11-28 22:16:53.828125000 +0100
+@@ -22,6 +22,7 @@ ifneq ($(PNGLIB),NONE)
+   ifneq ($(PNGHDR_DIR)x,x)
+     INCLUDES += -I$(PNGHDR_DIR)
+   endif
++  CFLAGS += -DPNG_USE_DLL 
+   ifneq ($(ZHDR_DIR)x,x)
+     INCLUDES += -I$(ZHDR_DIR)
+   endif
+@@ -104,28 +105,28 @@ else
+   LIBOPTR =
+ endif
+ 
+-tifftopnm pnmtotiff pnmtotiffcmyk: %: %.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o \
++tifftopnm pnmtotiff pnmtotiffcmyk: %: %.o %-res.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(TIFFLIB) $(TIFFJPEGLIB)` \
+ 	   $(MATHLIB) $(TIFFLIB_LDFLAGS) $(LDLIBS) $(RPATH) $(LADD)
+ 
+-pngtopnm: %: %.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o \
++pngtopnm: %: %.o %-res.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(PNGLIB) $(ZLIB)` \
+ 	  $(MATHLIB) $(LDLIBS) $(RPATH) $(LADD)
+ 
+-pnmtopng: %: %.o pngtxt.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o pngtxt.o \
++pnmtopng: %: %.o %-res.o pngtxt.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o pngtxt.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(PNGLIB) $(ZLIB)` \
+ 	  $(MATHLIB) $(LDLIBS) $(RPATH) $(LADD)
+ 
+-jpegtopnm: %: %.o jpegdatasource.o exif.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $< jpegdatasource.o exif.o \
++jpegtopnm: %: %.o %-res.o jpegdatasource.o exif.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $< jpegdatasource.o exif.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIB)` \
+ 	  $(MATHLIB) $(LDLIBS) $(RPATH) $(LADD) 
+ 
+-pnmtojpeg: %: %.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o \
++pnmtojpeg: %: %.o %-res.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIB)` \
+ 	  $(MATHLIB) $(LDLIBS) $(RPATH) $(LADD)
+ 
+@@ -135,13 +136,13 @@ ifeq ($(URTLIB), $(BUNDLED_URTLIB))
+   URTLIBDEP = $(URTLIB)
+ endif
+ 
+-rletopnm pnmtorle: %: %.o $(NETPBMLIB) $(URTLIBDEP) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o \
++rletopnm pnmtorle: %: %.o %-res.o $(NETPBMLIB) $(URTLIBDEP) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB) $(URTLIB)` $(MATHLIB) $(LDLIBS) \
+ 	   $(RPATH) $(LADD)
+ 
+-pnmtorast rasttopnm: %: %.o rast.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $@.o rast.o \
++pnmtorast rasttopnm: %: %.o %-res.o rast.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $@.o rast.o $@-res.o \
+ 	  `$(LIBOPT) $(NETPBMLIB)` $(MATHLIB) $(LDLIBS) \
+ 	   $(RPATH) $(LADD)
+ 
+@@ -151,7 +152,7 @@ install.bin.local: $(PKGDIR)/bin
+ # Remember that $(SYMLINK) might just be a copy command.
+ # backward compatibility: program used to be named pnmnoraw
+ 	cd $(PKGDIR)/bin ; \
+-	$(SYMLINK) pnmtoplainpnm$(EXE) pnmnoraw
++	$(SYMLINK) pnmtoplainpnm pnmnoraw
+ # backward compatibility: program used to be gemtopbm
+ 	cd $(PKGDIR)/bin ; \
+ 	$(SYMLINK) gemtopnm$(EXE) gemtopbm
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/anytopnm netpbm-10.25/converter/other/anytopnm
+--- netpbm-10.25-orig/converter/other/anytopnm	2004-10-13 17:05:53.000000000 +0200
++++ netpbm-10.25/converter/other/anytopnm	2004-11-28 20:16:03.625000000 +0100
+@@ -522,7 +522,7 @@ else
+     inputFile="-"
+ fi
+ 
+-tempdir="${TMPDIR-/tmp}/anytopnm.$$"
++tempdir="${TMPDIR-.}/anytopnm.$$"
+ mkdir $tempdir || { echo "Could not create temporary file. Exiting."; exit 1;}
+ chmod 700 $tempdir
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/fiasco/Makefile netpbm-10.25/converter/other/fiasco/Makefile
+--- netpbm-10.25-orig/converter/other/fiasco/Makefile	2003-09-13 04:44:09.000000000 +0200
++++ netpbm-10.25/converter/other/fiasco/Makefile	2004-11-28 21:51:50.187500000 +0100
+@@ -36,9 +36,9 @@ SUBDIRS = codec input output lib
+ 
+ include $(SRCDIR)/Makefile.common
+ 
+-$(BINARIES):%:%.o $(COMMON_OBJECTS) $(FIASCOLIBS) $(NETPBMLIB) \
++$(BINARIES):%:%.o %-res.o $(COMMON_OBJECTS) $(FIASCOLIBS) $(NETPBMLIB) \
+    $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $< $(COMMON_OBJECTS) \
++	$(LD) $(LDFLAGS) -o $@ $< $@-res.o $(COMMON_OBJECTS) \
+ 	`$(LIBOPT) $(FIASCOLIBS) $(NETPBMLIB)` $(MATHLIB) $(LDLIBS) \
+ 	$(RPATH) $(LADD)
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jbig/Makefile netpbm-10.25/converter/other/jbig/Makefile
+--- netpbm-10.25-orig/converter/other/jbig/Makefile	2004-07-22 00:55:36.000000000 +0200
++++ netpbm-10.25/converter/other/jbig/Makefile	2004-11-28 20:19:26.812500000 +0100
+@@ -37,8 +37,8 @@ HEADERLINKS = pm_config.h pm.h pbm.h pgm
+ 
+ include $(SRCDIR)/Makefile.common
+ 
+-$(BINARIES): %: %.o $(JBIGLIB_DEP) $(NETPBMLIB) $(LIBOPT) $(JBIGLIB)
+-	$(LD) $(LDFLAGS) -o $@ $< \
++$(BINARIES): %: %.o %-res.o $(JBIGLIB_DEP) $(NETPBMLIB) $(LIBOPT) $(JBIGLIB)
++	$(LD) $(LDFLAGS) -o $@ $< $@-res.o \
+ 	 `$(LIBOPT) $(NETPBMLIB) $(JBIGLIB)` $(MATHLIB) $(LDLIBS) \
+ 	  $(RPATH) $(LADD)
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/Makefile netpbm-10.25/converter/other/jpeg2000/Makefile
+--- netpbm-10.25-orig/converter/other/jpeg2000/Makefile	2004-03-29 18:56:42.000000000 +0200
++++ netpbm-10.25/converter/other/jpeg2000/Makefile	2004-11-28 22:21:54.859375000 +0100
+@@ -43,8 +43,8 @@ HEADERLINKS = pm_config.h pm.h pbm.h pgm
+ 
+ include $(SRCDIR)/Makefile.common
+ 
+-$(BINARIES): %: %.o $(JASPERLIB_DEP) $(NETPBMLIB) $(LIBOPT) $(JASPERLIB)
+-	$(LD) $(LDFLAGS) $(MATHLIB) $(LDLIBS) -o $@ $< \
++$(BINARIES): %: %.o %-res.o $(JASPERLIB_DEP) $(NETPBMLIB) $(LIBOPT) $(JASPERLIB)
++	$(LD) $(LDFLAGS) $(MATHLIB) $(LDLIBS) -o $@ $@-res.o $< \
+ 	 `$(LIBOPT) $(NETPBMLIB) $(JASPERLIB)` -lm \
+ 	  $(RPATH) $(LADD)
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h netpbm-10.25/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h
+--- netpbm-10.25-orig/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h	2004-09-09 04:43:52.000000000 +0200
++++ netpbm-10.25/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h	2004-11-28 21:45:52.125000000 +0100
+@@ -129,6 +129,10 @@
+ #include <sys/types.h>
+ #endif
+ 
++#ifdef _WIN32
++#include <stdint.h>
++#endif
++
+ #if defined(HAVE_STDBOOL_H)
+ /*
+  * The C language implementation does correctly provide the standard header
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c netpbm-10.25/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c
+--- netpbm-10.25-orig/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c	2004-09-09 04:31:33.000000000 +0200
++++ netpbm-10.25/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c	2004-11-28 21:51:07.359375000 +0100
+@@ -207,8 +207,8 @@ static void jpc_qmfb1d_split(jpc_fix_t *
+ 
+ #if defined(WIN32)
+ 	/* Get a buffer. */
+-	if (bufsize > QMFB_SPLITBUFSIZE) {
+-		if (!(buf = jas_malloc(bufsize * sizeof(jpc_fix_t)))) {
++	if (BUFSIZ > QMFB_SPLITBUFSIZE) {
++		if (!(buf = jas_malloc(BUFSIZ * sizeof(jpc_fix_t)))) {
+ 			/* We have no choice but to commit suicide in this case. */
+ 			abort();
+ 		}
+@@ -322,8 +322,8 @@ static void jpc_qmfb1d_join(jpc_fix_t *s
+ 
+ #if defined(WIN32)
+ 	/* Allocate memory for the join buffer from the heap. */
+-	if (bufsize > QMFB_JOINBUFSIZE) {
+-		if (!(buf = jas_malloc(bufsize * sizeof(jpc_fix_t)))) {
++	if (BUFSIZ > QMFB_JOINBUFSIZE) {
++		if (!(buf = jas_malloc(BUFSIZ * sizeof(jpc_fix_t)))) {
+ 			/* We have no choice but to commit suicide. */
+ 			abort();
+ 		}
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/pnmtopalm/Makefile netpbm-10.25/converter/other/pnmtopalm/Makefile
+--- netpbm-10.25-orig/converter/other/pnmtopalm/Makefile	2004-06-21 00:56:23.000000000 +0200
++++ netpbm-10.25/converter/other/pnmtopalm/Makefile	2004-11-28 20:20:30.203125000 +0100
+@@ -21,12 +21,12 @@ HEADERLINKS = pm_config.h pm.h pbm.h pgm
+ 
+ include $(SRCDIR)/Makefile.common
+ 
+-$(BINARIES): %: %.o palmcolormap.o $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o $@ $< palmcolormap.o `$(LIBOPT) $(NETPBMLIB)` \
++$(BINARIES): %: %.o %-res.o palmcolormap.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o $@ $< $@-res.o palmcolormap.o `$(LIBOPT) $(NETPBMLIB)` \
+ 	  $(MATHLIB) $(LDLIBS) $(RPATH) $(LADD)
+ 
+-gen_palm_colormap : $(SUBDIR)/gen_palm_colormap.c palmcolormap.o
+-	$(CC) $(INCLUDES) $(CFLAGS) $(LDFLAGS) -o $@ $< palmcolormap.o \
++gen_palm_colormap : $(SUBDIR)/gen_palm_colormap.c palmcolormap.o %-res.o
++	$(CC) $(INCLUDES) $(CFLAGS) $(LDFLAGS) -o $@ $@-res.o $< palmcolormap.o \
+ 	  `$(LIBOPT) $(NETPBMLIB)` $(MATHLIB) $(LDLIBS) $(LADD)
+ 
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/Makefile netpbm-10.25/converter/pbm/Makefile
+--- netpbm-10.25-orig/converter/pbm/Makefile	2004-10-16 20:08:45.000000000 +0200
++++ netpbm-10.25/converter/pbm/Makefile	2004-11-28 19:29:35.625000000 +0100
+@@ -73,7 +73,7 @@ thinkjettopbm.c:%.c:%.c1 $(SRCDIR)/lib/u
+ 	cat $(SRCDIR)/lib/util/lexheader $< | \
+ 	  grep -v "^[[:space:]]*int yylex(void);" | \
+ 	  grep -v "^[[:space:]]*int yywrap(void);" \
+-	  >$@
++	  >$@; dtou $@
+ 
+ clean: localclean
+ .PHONY: localclean
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/pbmtoppa/Makefile netpbm-10.25/converter/pbm/pbmtoppa/Makefile
+--- netpbm-10.25-orig/converter/pbm/pbmtoppa/Makefile	2004-03-29 18:50:15.000000000 +0200
++++ netpbm-10.25/converter/pbm/pbmtoppa/Makefile	2004-11-28 20:49:19.281250000 +0100
+@@ -3,7 +3,7 @@ ifeq ($(SRCDIR)x,x)
+   BUILDDIR = $(SRCDIR)
+ endif
+ SUBDIR = converter/pbm/pbmtoppa
+-VPATH=.:$(SRCDIR)/$(SUBDIR)
++VPATH=.:$(SRCDIR)/$(SUBDIR):$(CSRCDIR)/res
+ 
+ include $(BUILDDIR)/Makefile.config
+ 
+@@ -20,8 +20,8 @@ HEADERLINKS = pm_config.h pm.h pbm.h
+ 
+ include $(SRCDIR)/Makefile.common
+ 
+-pbmtoppa: $(OBJECTS) $(NETPBMLIB) $(LIBOPT)
+-	$(LD) $(LDFLAGS) -o pbmtoppa $(OBJECTS) \
++pbmtoppa: %: $(OBJECTS) %-res.o $(NETPBMLIB) $(LIBOPT)
++	$(LD) $(LDFLAGS) -o pbmtoppa $(OBJECTS) $@-res.o \
+ 	  -lm `$(LIBOPT) $(NETPBMLIB)` $(LDLIBS) \
+ 	  $(RPATH) $(LADD)
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/pbmtoppa/pbmtoppa.c netpbm-10.25/converter/pbm/pbmtoppa/pbmtoppa.c
+--- netpbm-10.25-orig/converter/pbm/pbmtoppa/pbmtoppa.c	2002-07-30 17:48:16.000000000 +0200
++++ netpbm-10.25/converter/pbm/pbmtoppa/pbmtoppa.c	2004-11-28 19:29:35.656250000 +0100
+@@ -19,6 +19,10 @@
+ 
+ #include "defaults.h"
+ 
++#ifdef __WIN32__
++#include <windows.h>
++#endif /* __WIN32__ */
++
+ /* Paper sizes in 600ths of an inch. */
+ 
+ /* US is 8.5 in by 11 in */
+@@ -389,6 +393,14 @@ main (int argc, char *argv[])
+ 
+   if(!stat(defaultcfgfile,&tmpstat))
+     read_config_file(defaultcfgfile);
++#ifdef __WIN32__
++  else {
++	char ppaConfigFileName [MAX_PATH];
++	sprintf(ppaConfigFileName, "%s\\etc\\pbmtoppa.conf", exec_parent);
++    if(!stat(ppaConfigFileName,&tmpstat))
++      read_config_file(ppaConfigFileName);
++  }
++#endif /* __WIN32__ */
+ 
+   for(argn=1; argn<argc; argn++)
+   {
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/picttoppm.c netpbm-10.25/converter/ppm/picttoppm.c
+--- netpbm-10.25-orig/converter/ppm/picttoppm.c	2004-03-31 21:19:44.000000000 +0200
++++ netpbm-10.25/converter/ppm/picttoppm.c	2004-11-28 19:29:35.671875000 +0100
+@@ -32,7 +32,7 @@
+ #include <errno.h>
+ #include <assert.h>
+ 
+-#if defined(__MINGW32__) && !defined(__CYGWIN__)
++#if defined(__MINGW32__) && !defined(__CYGWIN__) && !defined(__GW32__)
+ /* use libiberty replacement function */
+ #define mkstemp mkstemps
+ #endif
+@@ -997,7 +997,7 @@ blit(struct Rect *      const srcRect, 
+ 
+     if (!rectsamesize(&clipsrc, &clipdst)) {
+         FILE*   pnmscale;
+-#define TMPFILE_TEMPLATE "/tmp/picttoppm.XXXXXX"
++#define TMPFILE_TEMPLATE "./picttoppm.XXXXXX"
+         char    tmpfile[sizeof(TMPFILE_TEMPLATE)];
+         int     fd;
+         char    command[1024];
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/Makefile netpbm-10.25/converter/ppm/ppmtompeg/Makefile
+--- netpbm-10.25-orig/converter/ppm/ppmtompeg/Makefile	2004-10-16 22:28:32.000000000 +0200
++++ netpbm-10.25/converter/ppm/ppmtompeg/Makefile	2004-11-28 20:57:54.593750000 +0100
+@@ -72,15 +72,15 @@ else
+   LIBOPTR =
+ endif
+ 
+-ppmtompeg: $(OBJECTS) $(NETPBMLIB) $(LIBOPT)
++ppmtompeg: $(OBJECTS) ppmtompeg-res.o $(NETPBMLIB) $(LIBOPT)
+ 	$(LD) -o $@ $(LDFLAGS) \
+-          $(OBJECTS) `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIBX)` \
++          $(OBJECTS) $@-res.o `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIBX)` \
+ 	  $(NETWORKLD) $(MATHLIB) $(LDLIBS) \
+ 	  $(RPATH) $(LADD)
+ 
+-profile: $(OBJECTS) $(NETPBMLIB) $(LIBOPT)
++profile: $(OBJECTS) profile-res.o $(NETPBMLIB) $(LIBOPT)
+ 	$(LD) -o $@ -Bstatic -pg $(LDFLAGS) \
+-          $(OBJECTS) `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIBX)` \
++          $(OBJECTS) $@-res.o `$(LIBOPT) $(NETPBMLIB) $(LIBOPTR) $(JPEGLIBX)` \
+ 	  $(NETWORKLD) $(MATHLIB) $(LDLIBS) \
+ 	  $(RPATH) $(LADD)
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/noparallel.c netpbm-10.25/converter/ppm/ppmtompeg/noparallel.c
+--- netpbm-10.25-orig/converter/ppm/ppmtompeg/noparallel.c	2003-07-02 04:43:28.000000000 +0200
++++ netpbm-10.25/converter/ppm/ppmtompeg/noparallel.c	2004-11-28 20:57:16.421875000 +0100
+@@ -215,16 +215,16 @@ StartMasterServer(numInputFiles, paramFi
+     exit(1);
+ }
+ 
+-
+ /* NotifyMasterDone
+  */
+ void
+-NotifyMasterDone(const char * const hostName, 
+-                 int          const portNum, 
+-                 int          const machineNumber, 
+-                 int          const seconds, 
+-                 int *        const frameStartP,
+-                 int *        const frameEndP)
++NotifyMasterDone(const char * const masterHostName, 
++                 int          const masterPortNum, 
++                 int          const childNum,
++                 unsigned int const seconds, 
++                 boolean *    const moreWorkToDoP,
++                 int *        const nextFrameStartP,
++                 int *        const nextFrameEndP)
+ {
+     fprintf(stdout, "ERROR:  (NotifyMasterDone) "
+             "This machine can NOT run parallel version\n");
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/parallel.c netpbm-10.25/converter/ppm/ppmtompeg/parallel.c
+--- netpbm-10.25-orig/converter/ppm/ppmtompeg/parallel.c	2004-10-13 19:22:31.000000000 +0200
++++ netpbm-10.25/converter/ppm/ppmtompeg/parallel.c	2004-11-28 19:29:35.718750000 +0100
+@@ -1044,7 +1044,7 @@ GetRemoteFrame(MpegFrame * const frameP,
+             FILE * filePtr;
+             char fileName[256];
+ 
+-            sprintf(fileName, "/tmp/foobar%d", machineNumber);
++            sprintf(fileName, "./foobar%d", machineNumber);
+             filePtr = fopen(fileName, "wb");
+ 
+             /* read in stuff, write to file, perform local conversion */
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/vidtoppm.c netpbm-10.25/converter/ppm/vidtoppm.c
+--- netpbm-10.25-orig/converter/ppm/vidtoppm.c	2000-05-16 22:22:34.000000000 +0200
++++ netpbm-10.25/converter/ppm/vidtoppm.c	2004-11-28 19:29:35.734375000 +0100
+@@ -245,7 +245,7 @@ char **argv;
+ 
+ 
+     sprintf(ofname, "%s%d.ppm", obase, i);
+-    outFile = fopen("/tmp/foobar", "wb");
++    outFile = fopen("./foobar", "wb");
+     if (!outFile) {
+       perror("Couldn't open output file.");
+     }
+@@ -263,7 +263,7 @@ char **argv;
+ 
+     free(tdata);
+ 
+-    sprintf(command, "rawtoppm %d %d < /tmp/foobar > %s",
++    sprintf(command, "rawtoppm %d %d < ./foobar > %s",
+ 	    width, height, ofname);
+     system(command);
+   }
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/xpmtoppm.c netpbm-10.25/converter/ppm/xpmtoppm.c
+--- netpbm-10.25-orig/converter/ppm/xpmtoppm.c	2004-03-13 20:36:36.000000000 +0100
++++ netpbm-10.25/converter/ppm/xpmtoppm.c	2004-11-28 20:52:29.140625000 +0100
+@@ -121,7 +121,7 @@ static bool backup;
+ 
+ 
+ static void
+-getline(char * const line, int const size, FILE * const stream) {
++xpmtoppm_getline(char * const line, int const size, FILE * const stream) {
+ /*----------------------------------------------------------------------------
+    Read the next line from the input file 'stream', through the one-line
+    buffer lastInputLine[].
+@@ -384,25 +384,25 @@ readXpm3Header(FILE * const stream, int 
+     *widthP = *heightP = *ncolorsP = *chars_per_pixelP = -1;
+ 
+     /* Read the XPM signature comment */
+-    getline(line, sizeof(line), stream);
++    xpmtoppm_getline(line, sizeof(line), stream);
+     if (strncmp(line, xpm3_signature, strlen(xpm3_signature)) != 0) 
+         pm_error("Apparent XPM 3 file does not start with '/* XPM */'.  "
+                  "First line is '%s'", xpm3_signature);
+ 
+     /* Read the assignment line */
+-    getline(line, sizeof(line), stream);
++    xpmtoppm_getline(line, sizeof(line), stream);
+     if (strncmp(line, "static char", 11) != 0)
+         pm_error("Cannot find data structure declaration.  Expected a "
+                  "line starting with 'static char', but found the line "
+                  "'%s'.", line);
+ 
+ 	/* Read the hints line */
+-    getline(line, sizeof(line), stream);
++    xpmtoppm_getline(line, sizeof(line), stream);
+     /* skip the comment line if any */
+     if (!strncmp(line, "/*", 2)) {
+         while (!strstr(line, "*/"))
+-            getline(line, sizeof(line), stream);
+-        getline(line, sizeof(line), stream);
++            xpmtoppm_getline(line, sizeof(line), stream);
++        xpmtoppm_getline(line, sizeof(line), stream);
+     }
+     if (sscanf(line, "\"%d %d %d %d\",", widthP, heightP,
+                ncolorsP, chars_per_pixelP) != 4)
+@@ -436,10 +436,10 @@ readXpm3Header(FILE * const stream, int 
+         *transparentP = -1;  /* initial value */
+ 
+         for (seqNum = 0; seqNum < *ncolorsP; seqNum++) {
+-            getline(line, sizeof(line), stream);
++            xpmtoppm_getline(line, sizeof(line), stream);
+             /* skip the comment line if any */
+             if (!strncmp(line, "/*", 2))
+-                getline(line, sizeof(line), stream);
++                xpmtoppm_getline(line, sizeof(line), stream);
+             
+             interpretXpm3ColorTableLine(line, seqNum, *chars_per_pixelP, 
+                                         *colorsP, *ptabP, transparentP);
+@@ -473,7 +473,7 @@ readXpm1Header(FILE * const stream, int 
+     /* Read the initial defines. */
+     processedStaticChar = FALSE;
+     while (!processedStaticChar) {
+-        getline(line, sizeof(line), stream);
++        xpmtoppm_getline(line, sizeof(line), stream);
+ 
+         if (sscanf(line, "#define %s %d", str1, &v) == 2) {
+             char *t1;
+@@ -521,7 +521,7 @@ readXpm1Header(FILE * const stream, int 
+     /* If there's a monochrome color table, skip it. */
+     if (!strncmp(t1, "mono", 4)) {
+         for (;;) {
+-            getline(line, sizeof(line), stream);
++            xpmtoppm_getline(line, sizeof(line), stream);
+             if (!strncmp(line, "static char", 11))
+                 break;
+         }
+@@ -544,7 +544,7 @@ readXpm1Header(FILE * const stream, int 
+ 
+     /* Read color table. */
+     for (i = 0; i < *ncolorsP; ++i) {
+-        getline(line, sizeof(line), stream);
++        xpmtoppm_getline(line, sizeof(line), stream);
+ 
+         if ((t1 = strchr(line, '"')) == NULL)
+             pm_error("D error scanning color table");
+@@ -580,7 +580,7 @@ readXpm1Header(FILE * const stream, int 
+        "static char ...").
+     */
+     for (;;) {
+-        getline(line, sizeof(line), stream);
++        xpmtoppm_getline(line, sizeof(line), stream);
+         if (strncmp(line, "static char", 11) == 0)
+             break;
+     }
+@@ -671,7 +671,7 @@ ReadXPMFile(FILE * const stream, int * c
+     backup = FALSE;
+ 
+     /* Read the header line */
+-    getline(line, sizeof(line), stream);
++    xpmtoppm_getline(line, sizeof(line), stream);
+     backup = TRUE;  /* back up so next read reads this line again */
+     
+     rc = sscanf(line, "/* %s */", str1);
+@@ -691,7 +691,7 @@ ReadXPMFile(FILE * const stream, int * c
+         pm_error("Could not get %d bytes of memory for image", totalpixels);
+     cursor = *dataP;
+     maxcursor = *dataP + totalpixels - 1;
+-	getline(line, sizeof(line), stream); 
++	xpmtoppm_getline(line, sizeof(line), stream); 
+         /* read next line (first line may not always start with comment) */
+     while (cursor <= maxcursor) {
+         if (strncmp(line, "/*", 2) == 0) {
+@@ -701,7 +701,7 @@ ReadXPMFile(FILE * const stream, int * c
+                              ncolors, ptab, &cursor, maxcursor);
+         }
+         if (cursor <= maxcursor)
+-            getline(line, sizeof(line), stream);
++            xpmtoppm_getline(line, sizeof(line), stream);
+     }
+     if (ptab) free(ptab);
+ }
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/xvminitoppm.c netpbm-10.25/converter/ppm/xvminitoppm.c
+--- netpbm-10.25-orig/converter/ppm/xvminitoppm.c	2002-07-30 18:31:40.000000000 +0200
++++ netpbm-10.25/converter/ppm/xvminitoppm.c	2004-11-28 20:53:44.015625000 +0100
+@@ -14,7 +14,7 @@
+ #include "ppm.h"
+ #define BUFSIZE 256
+ 
+-static void getline ARGS((FILE *fp, char *buf));
++static void xvminitoppm_getline ARGS((FILE *fp, char *buf));
+ 
+ int 
+ main(argc, argv)
+@@ -48,18 +48,18 @@ main(argc, argv)
+                 i++;
+             }
+     
+-    getline(ifp, buf);
++    xvminitoppm_getline(ifp, buf);
+     if( strncmp(buf, "P7 332", 6) != 0 )
+         pm_error("bad magic number - not a XV thumbnail picture");
+ 
+     while(1) {
+-        getline(ifp, buf);
++        xvminitoppm_getline(ifp, buf);
+         if( strncmp(buf, "#END_OF_COMMENTS", 16)==0 )
+             break;
+         if( strncmp(buf, "#BUILTIN", 8)==0 )
+             pm_error("cannot convert builtin XV thumbnail pictures");
+     }
+-    getline(ifp, buf);
++    xvminitoppm_getline(ifp, buf);
+     if( sscanf(buf, "%d %d %d", &cols, &rows, &maxval) != 3 ) 
+         pm_error("error parsing dimension info");
+     if( maxval != 255 )
+@@ -85,7 +85,7 @@ main(argc, argv)
+ 
+ 
+ static void
+-getline(fp, buf)
++xvminitoppm_getline(fp, buf)
+     FILE *fp;
+     char *buf;
+ {
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pamstretch-gen netpbm-10.25/editor/pamstretch-gen
+--- netpbm-10.25-orig/editor/pamstretch-gen	2004-07-25 02:01:24.000000000 +0200
++++ netpbm-10.25/editor/pamstretch-gen	2004-11-28 20:13:36.546875000 +0100
+@@ -31,7 +31,7 @@ if [ "$1" = "" ]; then
+   exit 1
+ fi
+ 
+-tempdir="${TMPDIR-/tmp}/pamstretch-gen.$$"
++tempdir="${TMPDIR-.}/pamstretch-gen.$$"
+ mkdir $tempdir || { echo "Could not create temporary file. Exiting."; exit 1;}
+ chmod 700 $tempdir
+ tempfile=$tempdir/pnmig
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pnmindex netpbm-10.25/editor/pnmindex
+--- netpbm-10.25-orig/editor/pnmindex	2003-12-31 04:58:26.000000000 +0100
++++ netpbm-10.25/editor/pnmindex	2004-11-28 20:14:20.218750000 +0100
+@@ -89,7 +89,7 @@ if [ $# -eq 0 ]; then
+     usage
+ fi
+ 
+-tempdir="${TMPDIR-/tmp}/pnmindex.$$"
++tempdir="${TMPDIR-.}/pnmindex.$$"
+ mkdir $tempdir || { echo "Could not create temporary file. Exiting."; exit 1;}
+ chmod 700 $tempdir
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pnmsmooth.c netpbm-10.25/editor/pnmsmooth.c
+--- netpbm-10.25-orig/editor/pnmsmooth.c	2004-04-17 23:31:41.000000000 +0200
++++ netpbm-10.25/editor/pnmsmooth.c	2004-11-28 19:29:35.781250000 +0100
+@@ -36,7 +36,7 @@ main( argc, argv )
+     char* argv[];
+     {
+     FILE *cofp;
+-#define TMPFILE_TEMPLATE "/tmp/pnmsmooth.XXXXXX"    
++#define TMPFILE_TEMPLATE "./pnmsmooth.XXXXXX"    
+     char tempfn[sizeof(TMPFILE_TEMPLATE)];
+     char *pnmfn;
+     int argn;
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/Makefile netpbm-10.25/lib/Makefile
+--- netpbm-10.25-orig/lib/Makefile	2004-10-16 19:29:23.000000000 +0200
++++ netpbm-10.25/lib/Makefile	2004-11-29 13:43:18.468750000 +0100
+@@ -3,7 +3,8 @@ ifeq ($(SRCDIR)x,x)
+   BUILDDIR = $(SRCDIR)
+ endif
+ SUBDIR = lib
+-VPATH=.:$(SRCDIR)/$(SUBDIR)
++RESDIR = $(SRCDIR)/res
++VPATH=. $(SRCDIR)/$(SUBDIR) $(RESDIR)
+ DLLTOOL=dlltool
+ include $(BUILDDIR)/Makefile.config
+ 
+@@ -76,7 +77,7 @@ extra_staticlib: $(EXTRA_STATICLIB)
+ 
+ $(LIBOBJECTS): %.o: %.c $(HEADERLINKS)
+ # Note that the user may have configured -I options into CFLAGS.
+-	$(CC) -c $(INCLUDES) -DNDEBUG $(CFLAGS) $(CFLAGS_SHLIB) \
++	$(CC) -c $(INCLUDES) -DNDEBUG $(CPPFLAGS) $(CFLAGS) $(CFLAGS_SHLIB) \
+ 	  $(CFLAGS_PERSONAL) $(CADD) -o $@ $<
+ 
+ MAJ = $(NETPBM_MAJOR_RELEASE)
+@@ -116,14 +117,16 @@ libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).$(MI
+ endif
+ 
+ ifeq ($(NETPBMLIBTYPE),dll)
++$(NETPBMSHLIBPREFIX)netpbm-dllversion.o: $(RESDIR)/$(NETPBMSHLIBPREFIX)netpbm-dllversion.c
++	$(CC) -c -o $@ $< $(CPPFLAGS) $(CFLAGS)
++LIBOBJECTS+=$(NETPBMSHLIBPREFIX)netpbm-dllversion.o
+ ifeq ($(STATICLIB_TOO),y)
+ $(NETPBMSHLIBPREFIX)netpbm$(DLLVER).dll: $(LIBOBJECTS) $(LIBOBJECTS_X) libnetpbm.$(STATICLIBSUFFIX)
+ else
+ $(NETPBMSHLIBPREFIX)netpbm$(DLLVER).dll: $(LIBOBJECTS) $(LIBOBJECTS_X)
+ endif
+-	$(LD) $(LDSHLIB) -Wl,--export-all-symbols \
+-            -Wl,-soname,$(NETPBMSHLIBPREFIX)netpbm$(DLLVER).dll \
+-            -Wl,--out-implib,libnetpbm.dll.a -o $@ $(LDFLAGS) \
++	@echo "VPATH = $(VPATH)"
++	rm -f libnetpbm.def && o2dll -l libnetpbm.dll.a -o $@ $(LDFLAGS) \
+             $(LIBOBJECTS) $(LIBOBJECTS_X) $(LDLIBS) $(LADD) 
+ endif
+ 
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/libpm.c netpbm-10.25/lib/libpm.c
+--- netpbm-10.25-orig/lib/libpm.c	2004-10-09 17:31:01.000000000 +0200
++++ netpbm-10.25/lib/libpm.c	2004-11-28 19:29:35.812500000 +0100
+@@ -49,6 +49,10 @@
+ 
+ #include "mallocvar.h"
+ 
++#ifdef __WIN32__
++#include <windows.h>
++#endif /* __WIN32__ */
++
+ /* The following are set by pm_init(), then used by subsequent calls to other
+    pm_xxx() functions.
+    */
+@@ -57,6 +61,9 @@ static bool pm_showmessages;  
+     /* Programs should display informational messages (because the user didn't
+        specify the --quiet option).
+     */
++#ifdef __WIN32__
++  char exec_parent[MAX_PATH]; /* parent directory of program */
++#endif /* __WIN32__ */
+ 
+ /* Programs should produce output in plain format */
+ int pm_plain_output;
+@@ -385,6 +392,17 @@ pm_init(const char * const progname, uns
+ #endif /* HAVE_SETMODE */
+ #endif /* O_BINARY */
+ 
++#ifdef __WIN32__
++  { char *lastslash;
++
++  GetModuleFileName (NULL, exec_parent, MAX_PATH);
++  if ((lastslash = strrchr (exec_parent, '\\')) != NULL)
++   *lastslash = '\0';
++  if ((lastslash = strrchr (exec_parent, '\\')) != NULL)
++   *lastslash = '\0';
++  }
++#endif /* __WIN32__ */
++
+ }
+ 
+ 
+@@ -452,6 +470,12 @@ showNetpbmHelp(const char progname[]) {
+         netpbmConfigFileName = "/etc/netpbm";
+     
+     netpbmConfigFile = fopen(netpbmConfigFileName, "r");
++#ifdef __WIN32__
++    if (netpbmConfigFile == NULL) { /* try ../etc/netpbm */
++		sprintf(netpbmConfigFileName, "%s\\etc\\netpbm", exec_parent);
++	    netpbmConfigFile = fopen(netpbmConfigFileName, "r");
++	}
++#endif /* __WIN32__ */
+     if (netpbmConfigFile == NULL) {
+         pm_message("Unable to open Netpbm configuration file '%s'.  "
+                    "Errno = %d (%s).  "
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/pm.h netpbm-10.25/lib/pm.h
+--- netpbm-10.25-orig/lib/pm.h	2004-05-01 05:19:41.000000000 +0200
++++ netpbm-10.25/lib/pm.h	2004-11-28 19:29:35.812500000 +0100
+@@ -290,3 +290,12 @@ pm_arg0toprogname(const char arg0[]);
+ #endif
+ 
+ 
++#ifdef __WIN32__
++#ifdef NETPBM_USE_DLL
++#ifndef BUILD_DLL
++   __attribute__((dllimport))
++#endif	/* BUILD_DLL */
++#endif /* NETPBM_USE_DLL */
++   extern char exec_parent[MAX_PATH]; /* parent directory of program */
++#endif /* __WIN32__ */
++
+diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/manweb netpbm-10.25/manweb
+--- netpbm-10.25-orig/manweb	2003-09-08 17:46:40.000000000 +0200
++++ netpbm-10.25/manweb	2004-11-28 19:29:35.843750000 +0100
+@@ -315,7 +315,7 @@ sub readConfFile($) {
+         if (defined($envVblValue)) {
+             $confFile = $envVblValue;
+         } else {
+-            $confFile = "/etc/manweb.conf";
++            $confFile = "../etc/manweb.conf";
+         }
+     }
+ 

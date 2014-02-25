@@ -1,0 +1,994 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/generator/ppmrainbow.security	2003-01-04 01:40:56.000000000 +0100
+|+++ netpbm-10.27/generator/ppmrainbow	2005-03-29 14:31:42.980576704 +0200
+--------------------------
+Patching file generator/ppmrainbow using Plan A...
+Reversed (or previously applied) patch detected!  Skipping patch.
+Hunk #1 ignored at 11.
+1 out of 1 hunk ignored -- saving rejects to file generator/ppmrainbow.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/generator/pbmpage.c.security	2003-07-09 20:48:11.000000000 +0200
+|+++ netpbm-10.27/generator/pbmpage.c	2005-03-29 14:31:42.981576552 +0200
+--------------------------
+Patching file generator/pbmpage.c using Plan A...
+Reversed (or previously applied) patch detected!  Skipping patch.
+Hunk #1 ignored at 15.
+Hunk #2 ignored at 162.
+2 out of 2 hunks ignored -- saving rejects to file generator/pbmpage.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/generator/pbmtext.c.security	2004-12-08 05:56:06.000000000 +0100
+|+++ netpbm-10.27/generator/pbmtext.c	2005-03-29 14:31:42.982576400 +0200
+--------------------------
+Patching file generator/pbmtext.c using Plan A...
+Hunk #1 FAILED at 89.
+Hunk #2 succeeded at 576 (offset 2 lines).
+Hunk #3 FAILED at 599.
+Hunk #4 FAILED at 687.
+Hunk #5 FAILED at 703.
+4 out of 5 hunks FAILED -- saving rejects to file generator/pbmtext.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/generator/pgmcrater.c.security	2003-07-06 22:02:41.000000000 +0200
+|+++ netpbm-10.27/generator/pgmcrater.c	2005-03-29 14:31:42.983576248 +0200
+--------------------------
+Patching file generator/pgmcrater.c using Plan A...
+Reversed (or previously applied) patch detected!  Skipping patch.
+Hunk #1 ignored at 131.
+1 out of 1 hunk ignored -- saving rejects to file generator/pgmcrater.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/generator/pgmkernel.c.security	2003-07-06 22:03:29.000000000 +0200
+|+++ netpbm-10.27/generator/pgmkernel.c	2005-03-29 14:31:42.984576096 +0200
+--------------------------
+Patching file generator/pgmkernel.c using Plan A...
+Reversed (or previously applied) patch detected!  Skipping patch.
+Hunk #1 ignored at 68.
+1 out of 1 hunk ignored -- saving rejects to file generator/pgmkernel.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pbmtopgm.c.security	2004-09-18 05:15:02.000000000 +0200
+|+++ netpbm-10.27/converter/other/pbmtopgm.c	2005-03-29 14:31:42.985575944 +0200
+--------------------------
+Patching file converter/other/pbmtopgm.c using Plan A...
+Reversed (or previously applied) patch detected!  Skipping patch.
+Hunk #1 ignored at 45.
+1 out of 1 hunk ignored -- saving rejects to file converter/other/pbmtopgm.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/sirtopnm.c.security	2002-01-04 18:22:45.000000000 +0100
+|+++ netpbm-10.27/converter/other/sirtopnm.c	2005-03-29 14:31:42.986575792 +0200
+--------------------------
+Patching file converter/other/sirtopnm.c using Plan A...
+Hunk #1 FAILED at 69.
+1 out of 1 hunk FAILED -- saving rejects to file converter/other/sirtopnm.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/sgitopnm.c.security	2003-07-10 05:42:28.000000000 +0200
+|+++ netpbm-10.27/converter/other/sgitopnm.c	2005-03-29 14:31:42.987575640 +0200
+--------------------------
+Patching file converter/other/sgitopnm.c using Plan A...
+Hunk #1 succeeded at 252.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtosgi.c.security	2003-07-10 06:04:07.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtosgi.c	2005-03-29 14:31:42.988575488 +0200
+--------------------------
+Patching file converter/other/pnmtosgi.c using Plan A...
+Hunk #1 succeeded at 213.
+Hunk #2 succeeded at 266.
+Hunk #3 succeeded at 320.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/tifftopnm.c.security	2005-03-28 01:32:05.000000000 +0200
+|+++ netpbm-10.27/converter/other/tifftopnm.c	2005-03-29 14:31:42.990575184 +0200
+--------------------------
+Patching file converter/other/tifftopnm.c using Plan A...
+Hunk #1 succeeded at 742.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtorle.c.security	2003-07-10 06:04:49.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtorle.c	2005-03-29 14:31:42.992574880 +0200
+--------------------------
+Patching file converter/other/pnmtorle.c using Plan A...
+Hunk #1 succeeded at 19.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/jpegtopnm.c.security	2004-10-26 06:20:07.000000000 +0200
+|+++ netpbm-10.27/converter/other/jpegtopnm.c	2005-03-29 14:31:42.993574728 +0200
+--------------------------
+Patching file converter/other/jpegtopnm.c using Plan A...
+Hunk #1 succeeded at 828.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/rletopnm.c.security	2004-10-19 17:36:22.000000000 +0200
+|+++ netpbm-10.27/converter/other/rletopnm.c	2005-03-29 14:31:42.995574424 +0200
+--------------------------
+Patching file converter/other/rletopnm.c using Plan A...
+Hunk #1 succeeded at 19.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtotiff.c.security	2005-03-28 01:16:55.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtotiff.c	2005-03-29 14:31:42.996574272 +0200
+--------------------------
+Patching file converter/other/pnmtotiff.c using Plan A...
+Hunk #1 succeeded at 620.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtopalm/palmcolormap.c.security	2004-10-16 19:50:24.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtopalm/palmcolormap.c	2005-03-29 14:31:42.998573968 +0200
+--------------------------
+Patching file converter/other/pnmtopalm/palmcolormap.c using Plan A...
+Hunk #1 succeeded at 232.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pngtopnm.c.security	2005-03-25 06:08:44.000000000 +0100
+|+++ netpbm-10.27/converter/other/pngtopnm.c	2005-03-29 14:31:42.999573816 +0200
+--------------------------
+Patching file converter/other/pngtopnm.c using Plan A...
+Hunk #1 succeeded at 744.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/gemtopnm.c.security	2004-09-18 05:15:23.000000000 +0200
+|+++ netpbm-10.27/converter/other/gemtopnm.c	2005-03-29 14:31:43.001573512 +0200
+--------------------------
+Patching file converter/other/gemtopnm.c using Plan A...
+Hunk #1 succeeded at 106.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtojpeg.c.security	2005-03-29 14:31:42.974577616 +0200
+|+++ netpbm-10.27/converter/other/pnmtojpeg.c	2005-03-29 14:31:43.002573360 +0200
+--------------------------
+Patching file converter/other/pnmtojpeg.c using Plan A...
+Hunk #1 succeeded at 588.
+Hunk #2 succeeded at 666.
+Hunk #3 succeeded at 934.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtops.c.security	2005-01-06 02:04:39.000000000 +0100
+|+++ netpbm-10.27/converter/other/pnmtops.c	2005-03-29 14:41:36.063414408 +0200
+--------------------------
+Patching file converter/other/pnmtops.c using Plan A...
+Hunk #1 succeeded at 187.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/xwdtopnm.c.security	2005-01-02 19:36:02.000000000 +0100
+|+++ netpbm-10.27/converter/other/xwdtopnm.c	2005-03-29 14:31:43.007572600 +0200
+--------------------------
+Patching file converter/other/xwdtopnm.c using Plan A...
+Hunk #1 succeeded at 247.
+Hunk #2 succeeded at 259.
+Hunk #3 succeeded at 584.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtoddif.c.security	2002-07-30 19:09:13.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtoddif.c	2005-03-29 14:31:43.008572448 +0200
+--------------------------
+Patching file converter/other/pnmtoddif.c using Plan A...
+Hunk #1 succeeded at 484.
+Hunk #2 succeeded at 500.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtomitsu.c.security	2003-07-06 23:04:25.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtomitsu.c	2005-03-29 14:31:43.010572144 +0200
+--------------------------
+Patching file converter/ppm/ppmtomitsu.c using Plan A...
+Hunk #1 succeeded at 164.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/psearch.c.security	2002-10-14 04:22:16.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/psearch.c	2005-03-29 14:31:43.011571992 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/psearch.c using Plan A...
+Hunk #1 succeeded at 217.
+Hunk #2 succeeded at 831.
+Hunk #3 succeeded at 881.
+Hunk #4 succeeded at 931.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/parallel.c.security	2005-03-29 14:31:42.959579896 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/parallel.c	2005-03-29 14:31:43.014571536 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/parallel.c using Plan A...
+Hunk #1 succeeded at 2124.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/jpeg.c.security	2002-10-17 16:49:49.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/jpeg.c	2005-03-29 14:31:43.015571384 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/jpeg.c using Plan A...
+Hunk #1 succeeded at 228.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/rgbtoycc.c.security	2004-11-13 23:13:03.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/rgbtoycc.c	2005-03-29 14:31:43.016571232 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/rgbtoycc.c using Plan A...
+Hunk #1 succeeded at 72.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/frame.c.security	2004-11-27 00:44:01.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/frame.c	2005-03-29 14:31:43.018570928 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/frame.c using Plan A...
+Hunk #1 succeeded at 137.
+Hunk #2 succeeded at 205.
+Hunk #3 succeeded at 522.
+Hunk #4 succeeded at 567.
+Hunk #5 succeeded at 618.
+Hunk #6 succeeded at 667.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtompeg/iframe.c.security	2004-11-27 04:58:15.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtompeg/iframe.c	2005-03-29 14:31:43.020570624 +0200
+--------------------------
+Patching file converter/ppm/ppmtompeg/iframe.c using Plan A...
+Hunk #1 succeeded at 859.
+Hunk #2 succeeded at 878.
+Hunk #3 succeeded at 1034.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtowinicon.c.security	2004-05-01 21:00:55.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtowinicon.c	2005-03-29 14:31:43.022570320 +0200
+--------------------------
+Patching file converter/ppm/ppmtowinicon.c using Plan A...
+Hunk #1 succeeded at 12.
+Hunk #2 succeeded at 219.
+Hunk #3 succeeded at 348.
+Hunk #4 succeeded at 409.
+Hunk #5 succeeded at 717.
+Hunk #6 succeeded at 739.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtolj.c.security	2002-09-06 18:31:57.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtolj.c	2005-03-29 14:31:43.023570168 +0200
+--------------------------
+Patching file converter/ppm/ppmtolj.c using Plan A...
+Hunk #1 succeeded at 182.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/Makefile.security	2004-10-16 20:55:28.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/Makefile	2005-03-29 14:31:43.024570016 +0200
+--------------------------
+Patching file converter/ppm/Makefile using Plan A...
+Hunk #1 succeeded at 11.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ximtoppm.c.security	2004-10-19 17:35:17.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ximtoppm.c	2005-03-29 14:31:43.025569864 +0200
+--------------------------
+Patching file converter/ppm/ximtoppm.c using Plan A...
+Hunk #1 succeeded at 283.
+Hunk #2 succeeded at 293.
+Hunk #3 succeeded at 302.
+Hunk #4 succeeded at 329.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/picttoppm.c.security	2005-02-20 22:36:52.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/picttoppm.c	2005-03-29 14:31:43.027569560 +0200
+--------------------------
+Patching file converter/ppm/picttoppm.c using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/pjtoppm.c.security	2003-07-06 23:45:36.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/pjtoppm.c	2005-03-29 14:31:43.028569408 +0200
+--------------------------
+Patching file converter/ppm/pjtoppm.c using Plan A...
+Hunk #1 succeeded at 127.
+Hunk #2 succeeded at 214.
+Hunk #3 succeeded at 228.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/sldtoppm.c.security	2004-02-21 22:55:39.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/sldtoppm.c	2005-03-29 14:31:43.030569104 +0200
+--------------------------
+Patching file converter/ppm/sldtoppm.c using Plan A...
+Hunk #1 succeeded at 306.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtopj.c.security	2002-09-06 18:32:14.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtopj.c	2005-03-29 14:31:43.031568952 +0200
+--------------------------
+Patching file converter/ppm/ppmtopj.c using Plan A...
+Hunk #1 succeeded at 180.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtoilbm.c.security	2004-03-20 06:06:39.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtoilbm.c	2005-03-29 14:31:43.034568496 +0200
+--------------------------
+Patching file converter/ppm/ppmtoilbm.c using Plan A...
+Hunk #1 succeeded at 810.
+Hunk #2 succeeded at 1909.
+Hunk #3 succeeded at 1998.
+Hunk #4 succeeded at 2411.
+Hunk #5 succeeded at 2496.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/xpmtoppm.c.security	2004-03-13 20:36:36.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/xpmtoppm.c	2005-03-29 14:31:43.035568344 +0200
+--------------------------
+Patching file converter/ppm/xpmtoppm.c using Plan A...
+Hunk #1 succeeded at 685.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ilbmtoppm.c.security	2003-08-10 00:30:10.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ilbmtoppm.c	2005-03-29 14:31:43.038567888 +0200
+--------------------------
+Patching file converter/ppm/ilbmtoppm.c using Plan A...
+Hunk #1 succeeded at 580.
+Hunk #2 succeeded at 621.
+Hunk #3 succeeded at 670.
+Hunk #4 succeeded at 1281.
+Hunk #5 succeeded at 1696.
+Hunk #6 succeeded at 1825.
+Hunk #7 succeeded at 1938.
+Hunk #8 succeeded at 2018.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtoeyuv.c.security	2003-07-07 00:22:35.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtoeyuv.c	2005-03-29 14:31:43.040567584 +0200
+--------------------------
+Patching file converter/ppm/ppmtoeyuv.c using Plan A...
+Hunk #1 succeeded at 113.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtoicr.c.security	2003-02-22 23:05:03.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtoicr.c	2005-03-29 14:31:43.041567432 +0200
+--------------------------
+Patching file converter/ppm/ppmtoicr.c using Plan A...
+Hunk #1 succeeded at 169.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/imgtoppm.c.security	2002-09-06 18:30:03.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/imgtoppm.c	2005-03-29 14:31:43.042567280 +0200
+--------------------------
+Patching file converter/ppm/imgtoppm.c using Plan A...
+Hunk #1 succeeded at 84.
+Hunk #2 succeeded at 106.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/pcxtoppm.c.security	2004-04-19 23:30:42.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/pcxtoppm.c	2005-03-29 14:31:43.043567128 +0200
+--------------------------
+Patching file converter/ppm/pcxtoppm.c using Plan A...
+Hunk #1 succeeded at 376.
+Hunk #2 succeeded at 384.
+Hunk #3 succeeded at 580.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtopjxl.c.security	2003-02-22 23:04:36.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtopjxl.c	2005-03-29 14:31:43.044566976 +0200
+--------------------------
+Patching file converter/ppm/ppmtopjxl.c using Plan A...
+Hunk #1 succeeded at 273.
+Hunk #2 succeeded at 295.
+Hunk #3 succeeded at 306.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtopict.c.security	2003-02-22 23:04:40.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtopict.c	2005-03-29 14:31:43.045566824 +0200
+--------------------------
+Patching file converter/ppm/ppmtopict.c using Plan A...
+Hunk #1 succeeded at 245.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/qrttoppm.c.security	1993-10-04 10:12:56.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/qrttoppm.c	2005-03-29 14:31:43.046566672 +0200
+--------------------------
+Patching file converter/ppm/qrttoppm.c using Plan A...
+Hunk #1 succeeded at 46.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtoxpm.c.security	2005-03-17 20:19:45.000000000 +0100
+|+++ netpbm-10.27/converter/ppm/ppmtoxpm.c	2005-03-29 14:39:29.902593768 +0200
+--------------------------
+Patching file converter/ppm/ppmtoxpm.c using Plan A...
+Hunk #1 succeeded at 193.
+Hunk #2 succeeded at 307.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/yuvtoppm.c.security	2003-07-06 22:32:09.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/yuvtoppm.c	2005-03-29 14:31:43.048566368 +0200
+--------------------------
+Patching file converter/ppm/yuvtoppm.c using Plan A...
+Hunk #1 succeeded at 72.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/ppm/ppmtopcx.c.security	2004-08-31 05:21:55.000000000 +0200
+|+++ netpbm-10.27/converter/ppm/ppmtopcx.c	2005-03-29 14:31:43.049566216 +0200
+--------------------------
+Patching file converter/ppm/ppmtopcx.c using Plan A...
+Hunk #1 succeeded at 418.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pgm/psidtopgm.c.security	2002-07-30 17:57:36.000000000 +0200
+|+++ netpbm-10.27/converter/pgm/psidtopgm.c	2005-03-29 14:31:43.050566064 +0200
+--------------------------
+Patching file converter/pgm/psidtopgm.c using Plan A...
+Hunk #1 succeeded at 60.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pgm/lispmtopgm.c.security	2002-09-06 18:27:00.000000000 +0200
+|+++ netpbm-10.27/converter/pgm/lispmtopgm.c	2005-03-29 14:31:43.051565912 +0200
+--------------------------
+Patching file converter/pgm/lispmtopgm.c using Plan A...
+Hunk #1 succeeded at 57.
+Hunk #2 succeeded at 102.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtozinc.c.security	2002-07-30 17:47:45.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtozinc.c	2005-03-29 14:31:43.051565912 +0200
+--------------------------
+Patching file converter/pbm/pbmtozinc.c using Plan A...
+Hunk #1 succeeded at 66.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtomgr.c.security	1993-10-04 10:10:50.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtomgr.c	2005-03-29 14:31:43.052565760 +0200
+--------------------------
+Patching file converter/pbm/pbmtomgr.c using Plan A...
+Hunk #1 succeeded at 43.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmto10x.c.security	2004-03-20 05:23:36.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmto10x.c	2005-03-29 14:31:43.053565608 +0200
+--------------------------
+Patching file converter/pbm/pbmto10x.c using Plan A...
+Hunk #1 succeeded at 162.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmto4425.c.security	2002-09-06 18:03:50.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmto4425.c	2005-03-29 14:31:43.054565456 +0200
+--------------------------
+Patching file converter/pbm/pbmto4425.c using Plan A...
+Hunk #1 succeeded at 1.
+Hunk #2 succeeded at 73.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtocmuwm.c.security	1993-10-04 10:10:46.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtocmuwm.c	2005-03-29 14:31:43.055565304 +0200
+--------------------------
+Patching file converter/pbm/pbmtocmuwm.c using Plan A...
+Hunk #1 succeeded at 43.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtogo.c.security	2002-07-30 17:47:49.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtogo.c	2005-03-29 14:31:43.056565152 +0200
+--------------------------
+Patching file converter/pbm/pbmtogo.c using Plan A...
+Hunk #1 succeeded at 90.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoxbm.c.security	2004-03-13 20:37:59.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtoxbm.c	2005-03-29 14:31:43.057565000 +0200
+--------------------------
+Patching file converter/pbm/pbmtoxbm.c using Plan A...
+Hunk #1 succeeded at 100.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtox10bm.c.security	2002-07-30 17:47:46.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtox10bm.c	2005-03-29 14:31:43.058564848 +0200
+--------------------------
+Patching file converter/pbm/pbmtox10bm.c using Plan A...
+Hunk #1 succeeded at 57.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/mdatopbm.c.security	2004-03-20 05:09:15.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/mdatopbm.c	2005-03-29 14:31:43.059564696 +0200
+--------------------------
+Patching file converter/pbm/mdatopbm.c using Plan A...
+Hunk #1 succeeded at 245.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/thinkjettopbm.l.security	2005-01-02 23:39:18.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/thinkjettopbm.l	2005-03-29 14:31:43.060564544 +0200
+--------------------------
+Patching file converter/pbm/thinkjettopbm.l using Plan A...
+Hunk #1 succeeded at 94.
+Hunk #2 succeeded at 206.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoppa/pbm.c.security	2000-06-01 19:20:30.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtoppa/pbm.c	2005-03-29 14:31:43.061564392 +0200
+--------------------------
+Patching file converter/pbm/pbmtoppa/pbm.c using Plan A...
+Hunk #1 succeeded at 105.
+Hunk #2 succeeded at 130.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoppa/pbmtoppa.c.security	2002-07-30 17:48:16.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtoppa/pbmtoppa.c	2005-03-29 14:31:43.062564240 +0200
+--------------------------
+Patching file converter/pbm/pbmtoppa/pbmtoppa.c using Plan A...
+Hunk #1 succeeded at 483 (offset 12 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pktopbm.c.security	2004-03-20 05:52:21.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pktopbm.c	2005-03-29 14:31:43.063564088 +0200
+--------------------------
+Patching file converter/pbm/pktopbm.c using Plan A...
+Hunk #1 succeeded at 274.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtolj.c.security	2004-03-20 05:43:25.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtolj.c	2005-03-29 14:31:43.065563784 +0200
+--------------------------
+Patching file converter/pbm/pbmtolj.c using Plan A...
+Hunk #1 succeeded at 30.
+Hunk #2 succeeded at 124.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoybm.c.security	1993-10-04 10:10:43.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtoybm.c	2005-03-29 14:31:43.066563632 +0200
+--------------------------
+Patching file converter/pbm/pbmtoybm.c using Plan A...
+Hunk #1 succeeded at 45.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/icontopbm.c.security	2003-01-08 20:19:42.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/icontopbm.c	2005-03-29 14:31:43.067563480 +0200
+--------------------------
+Patching file converter/pbm/icontopbm.c using Plan A...
+Hunk #1 succeeded at 12.
+Hunk #2 succeeded at 88.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/mgrtopbm.c.security	2005-02-20 20:58:25.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/mgrtopbm.c	2005-03-29 14:31:43.068563328 +0200
+--------------------------
+Patching file converter/pbm/mgrtopbm.c using Plan A...
+Hunk #1 succeeded at 68.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoascii.c.security	2002-07-30 17:42:53.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtoascii.c	2005-03-29 14:31:43.069563176 +0200
+--------------------------
+Patching file converter/pbm/pbmtoascii.c using Plan A...
+Hunk #1 succeeded at 115.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtogem.c.security	2000-06-09 09:07:05.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtogem.c	2005-03-29 14:31:43.070563024 +0200
+--------------------------
+Patching file converter/pbm/pbmtogem.c using Plan A...
+Hunk #1 succeeded at 123.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtomda.c.security	2004-01-11 22:11:22.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/pbmtomda.c	2005-03-29 14:31:43.071562872 +0200
+--------------------------
+Patching file converter/pbm/pbmtomda.c using Plan A...
+Hunk #1 succeeded at 179.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtomacp.c.security	2002-09-06 18:04:22.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtomacp.c	2005-03-29 14:31:43.072562720 +0200
+--------------------------
+Patching file converter/pbm/pbmtomacp.c using Plan A...
+Hunk #1 succeeded at 104.
+Hunk #2 succeeded at 115.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/ybmtopbm.c.security	1993-10-04 10:10:35.000000000 +0100
+|+++ netpbm-10.27/converter/pbm/ybmtopbm.c	2005-03-29 14:31:43.073562568 +0200
+--------------------------
+Patching file converter/pbm/ybmtopbm.c using Plan A...
+Hunk #1 succeeded at 88.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/pbm/pbmtoicon.c.security	2002-07-30 17:47:48.000000000 +0200
+|+++ netpbm-10.27/converter/pbm/pbmtoicon.c	2005-03-29 14:31:43.073562568 +0200
+--------------------------
+Patching file converter/pbm/pbmtoicon.c using Plan A...
+Hunk #1 succeeded at 42.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/other/pnmcolormap.c.security	2004-08-11 01:37:03.000000000 +0200
+|+++ netpbm-10.27/other/pnmcolormap.c	2005-03-29 14:31:43.087560440 +0200
+--------------------------
+Patching file other/pnmcolormap.c using Plan A...
+Hunk #1 succeeded at 788.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/doc/COPYRIGHT.PATENT.security	2004-05-01 01:54:22.000000000 +0200
+|+++ netpbm-10.27/doc/COPYRIGHT.PATENT	2005-03-29 14:31:43.088560288 +0200
+--------------------------
+Patching file doc/COPYRIGHT.PATENT using Plan A...
+Hunk #1 succeeded at 33.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmcrop.c.security	2002-07-30 19:47:37.000000000 +0200
+|+++ netpbm-10.27/editor/pnmcrop.c	2005-03-29 14:31:43.089560136 +0200
+--------------------------
+Patching file editor/pnmcrop.c using Plan A...
+Hunk #1 succeeded at 379.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmcut.c.security	2002-07-30 19:47:37.000000000 +0200
+|+++ netpbm-10.27/editor/pnmcut.c	2005-03-29 14:31:43.090559984 +0200
+--------------------------
+Patching file editor/pnmcut.c using Plan A...
+Hunk #1 succeeded at 373.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmpaste.c.security	2002-07-30 19:47:35.000000000 +0200
+|+++ netpbm-10.27/editor/pnmpaste.c	2005-03-29 14:31:43.091559832 +0200
+--------------------------
+Patching file editor/pnmpaste.c using Plan A...
+Hunk #1 succeeded at 100.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pbmlife.c.security	1993-10-04 10:10:37.000000000 +0100
+|+++ netpbm-10.27/editor/pbmlife.c	2005-03-29 14:31:43.091559832 +0200
+--------------------------
+Patching file editor/pbmlife.c using Plan A...
+Hunk #1 succeeded at 54.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pbmpscale.c.security	2003-07-06 21:41:04.000000000 +0200
+|+++ netpbm-10.27/editor/pbmpscale.c	2005-03-29 14:31:43.092559680 +0200
+--------------------------
+Patching file editor/pbmpscale.c using Plan A...
+Hunk #1 succeeded at 109.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/ppmdither.c.security	2005-03-29 14:31:42.975577464 +0200
+|+++ netpbm-10.27/editor/ppmdither.c	2005-03-29 14:31:43.093559528 +0200
+--------------------------
+Patching file editor/ppmdither.c using Plan A...
+Hunk #1 succeeded at 111.
+Hunk #2 succeeded at 168.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmshear.c.security	2002-12-11 21:00:02.000000000 +0100
+|+++ netpbm-10.27/editor/pnmshear.c	2005-03-29 14:31:43.094559376 +0200
+--------------------------
+Patching file editor/pnmshear.c using Plan A...
+Hunk #1 succeeded at 12.
+Hunk #2 succeeded at 199.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmscalefixed.c.security	2002-07-30 19:52:49.000000000 +0200
+|+++ netpbm-10.27/editor/pnmscalefixed.c	2005-03-29 14:31:43.095559224 +0200
+--------------------------
+Patching file editor/pnmscalefixed.c using Plan A...
+Hunk #1 succeeded at 209.
+Hunk #2 succeeded at 262.
+Hunk #3 succeeded at 445.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmhisteq.c.security	2004-09-18 05:25:46.000000000 +0200
+|+++ netpbm-10.27/editor/pnmhisteq.c	2005-03-29 14:31:43.095559224 +0200
+--------------------------
+Patching file editor/pnmhisteq.c using Plan A...
+Hunk #1 succeeded at 210.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmpad.c.security	2004-05-16 00:02:15.000000000 +0200
+|+++ netpbm-10.27/editor/pnmpad.c	2005-03-29 14:31:43.096559072 +0200
+--------------------------
+Patching file editor/pnmpad.c using Plan A...
+Hunk #1 succeeded at 356.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmremap.c.security	2005-02-23 05:35:06.000000000 +0100
+|+++ netpbm-10.27/editor/pnmremap.c	2005-03-29 14:31:43.097558920 +0200
+--------------------------
+Patching file editor/pnmremap.c using Plan A...
+Hunk #1 succeeded at 280.
+Hunk #2 succeeded at 320.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pamoil.c.security	2004-05-29 20:01:02.000000000 +0200
+|+++ netpbm-10.27/editor/pamoil.c	2005-03-29 14:31:43.098558768 +0200
+--------------------------
+Patching file editor/pamoil.c using Plan A...
+Hunk #1 succeeded at 112.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pbmclean.c.security	2005-02-27 17:33:57.000000000 +0100
+|+++ netpbm-10.27/editor/pbmclean.c	2005-03-29 14:31:43.099558616 +0200
+--------------------------
+Patching file editor/pbmclean.c using Plan A...
+Hunk #1 succeeded at 147.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmindex.csh.security	2000-09-14 07:37:35.000000000 +0200
+|+++ netpbm-10.27/editor/pnmindex.csh	2005-03-29 14:31:43.100558464 +0200
+--------------------------
+Patching file editor/pnmindex.csh using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmrotate.c.security	2004-02-02 20:19:52.000000000 +0100
+|+++ netpbm-10.27/editor/pnmrotate.c	2005-03-29 14:31:43.101558312 +0200
+--------------------------
+Patching file editor/pnmrotate.c using Plan A...
+Hunk #1 succeeded at 11.
+Hunk #2 succeeded at 573.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pamcut.c.security	2005-01-04 01:07:53.000000000 +0100
+|+++ netpbm-10.27/editor/pamcut.c	2005-03-29 14:31:43.102558160 +0200
+--------------------------
+Patching file editor/pamcut.c using Plan A...
+Hunk #1 succeeded at 509.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pnmgamma.c.security	2004-06-16 04:28:06.000000000 +0200
+|+++ netpbm-10.27/editor/pnmgamma.c	2005-03-29 14:31:43.102558160 +0200
+--------------------------
+Patching file editor/pnmgamma.c using Plan A...
+Hunk #1 succeeded at 274.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/editor/pbmreduce.c.security	2003-07-06 21:41:49.000000000 +0200
+|+++ netpbm-10.27/editor/pbmreduce.c	2005-03-29 14:31:43.103558008 +0200
+--------------------------
+Patching file editor/pbmreduce.c using Plan A...
+Hunk #1 succeeded at 93.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- /dev/null	2005-03-21 10:25:58.558439872 +0100
+|+++ netpbm-10.27/OPENLICENSE	2005-03-29 14:31:43.104557856 +0200
+--------------------------
+Patching file OPENLICENSE using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpammap.c.security	2005-03-17 05:27:49.000000000 +0100
+|+++ netpbm-10.27/lib/libpammap.c	2005-03-29 14:31:43.105557704 +0200
+--------------------------
+Patching file lib/libpammap.c using Plan A...
+Hunk #1 succeeded at 101.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpbmvms.c.security	2000-05-26 20:34:55.000000000 +0200
+|+++ netpbm-10.27/lib/libpbmvms.c	2005-03-29 14:31:43.106557552 +0200
+--------------------------
+Patching file lib/libpbmvms.c using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpm.c.security	2005-03-24 20:55:02.000000000 +0100
+|+++ netpbm-10.27/lib/libpm.c	2005-03-29 14:32:55.703521136 +0200
+--------------------------
+Patching file lib/libpm.c using Plan A...
+Hunk #1 succeeded at 36.
+Hunk #2 succeeded at 163 (offset 7 lines).
+Hunk #3 succeeded at 203 (offset 7 lines).
+Hunk #4 succeeded at 1394 (offset 25 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpam.c.security	2005-03-17 04:19:49.000000000 +0100
+|+++ netpbm-10.27/lib/libpam.c	2005-03-29 14:35:34.982307080 +0200
+--------------------------
+Patching file lib/libpam.c using Plan A...
+Hunk #1 succeeded at 270.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpbm1.c.security	2005-02-05 19:41:54.000000000 +0100
+|+++ netpbm-10.27/lib/libpbm1.c	2005-03-29 14:31:43.112556640 +0200
+--------------------------
+Patching file lib/libpbm1.c using Plan A...
+Hunk #1 succeeded at 56.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/pm.h.security	2005-03-24 21:00:43.000000000 +0100
+|+++ netpbm-10.27/lib/pm.h	2005-03-29 14:31:43.113556488 +0200
+--------------------------
+Patching file lib/pm.h using Plan A...
+Hunk #1 succeeded at 331.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle_open_f.c.security	2005-01-01 05:03:50.000000000 +0100
+|+++ netpbm-10.27/urt/rle_open_f.c	2005-03-29 14:31:43.114556336 +0200
+--------------------------
+Patching file urt/rle_open_f.c using Plan A...
+Hunk #1 succeeded at 6.
+Hunk #2 succeeded at 188.
+Hunk #3 succeeded at 203.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/Runput.c.security	2002-03-13 05:24:43.000000000 +0100
+|+++ netpbm-10.27/urt/Runput.c	2005-03-29 14:31:43.115556184 +0200
+--------------------------
+Patching file urt/Runput.c using Plan A...
+Hunk #1 succeeded at 17.
+Hunk #2 succeeded at 202.
+Hunk #3 succeeded at 226.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle_addhist.c.security	2003-01-08 20:35:44.000000000 +0100
+|+++ netpbm-10.27/urt/rle_addhist.c	2005-03-29 14:31:43.115556184 +0200
+--------------------------
+Patching file urt/rle_addhist.c using Plan A...
+Hunk #1 succeeded at 14.
+Hunk #2 succeeded at 71.
+Hunk #3 succeeded at 107.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle_getrow.c.security	2004-10-19 17:41:01.000000000 +0200
+|+++ netpbm-10.27/urt/rle_getrow.c	2005-03-29 14:31:43.117555880 +0200
+--------------------------
+Patching file urt/rle_getrow.c using Plan A...
+Hunk #1 succeeded at 17.
+Hunk #2 succeeded at 101.
+Hunk #3 succeeded at 144.
+Hunk #4 succeeded at 168.
+Hunk #5 succeeded at 190.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle.h.security	2002-03-13 16:32:34.000000000 +0100
+|+++ netpbm-10.27/urt/rle.h	2005-03-29 14:31:43.118555728 +0200
+--------------------------
+Patching file urt/rle.h using Plan A...
+Hunk #1 succeeded at 14.
+Hunk #2 succeeded at 172.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/README.security	2000-06-02 22:53:04.000000000 +0200
+|+++ netpbm-10.27/urt/README	2005-03-29 14:31:43.118555728 +0200
+--------------------------
+Patching file urt/README using Plan A...
+Hunk #1 succeeded at 18.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/scanargs.c.security	2003-01-08 20:38:25.000000000 +0100
+|+++ netpbm-10.27/urt/scanargs.c	2005-03-29 14:31:43.120555424 +0200
+--------------------------
+Patching file urt/scanargs.c using Plan A...
+Hunk #1 succeeded at 38.
+Hunk #2 succeeded at 67.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle_putcom.c.security	2000-05-19 01:12:22.000000000 +0200
+|+++ netpbm-10.27/urt/rle_putcom.c	2005-03-29 14:31:43.121555272 +0200
+--------------------------
+Patching file urt/rle_putcom.c using Plan A...
+Hunk #1 succeeded at 14.
+Hunk #2 succeeded at 91.
+Hunk #3 succeeded at 116.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/urt/rle_hdr.c.security	2000-06-09 09:49:51.000000000 +0200
+|+++ netpbm-10.27/urt/rle_hdr.c	2005-03-29 14:31:43.122555120 +0200
+--------------------------
+Patching file urt/rle_hdr.c using Plan A...
+Hunk #1 succeeded at 14.
+Hunk #2 succeeded at 79.
+Hunk #3 succeeded at 90.
+Hunk #4 succeeded at 157.
+Hunk #5 succeeded at 166.
+Hunk #6 succeeded at 179.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/analyzer/pgmhist.c.security	2003-07-06 21:23:19.000000000 +0200
+|+++ netpbm-10.27/analyzer/pgmhist.c	2005-03-29 14:31:43.123554968 +0200
+--------------------------
+Patching file analyzer/pgmhist.c using Plan A...
+Hunk #1 succeeded at 45.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/analyzer/pgmtexture.c.security	2003-08-07 18:18:16.000000000 +0200
+|+++ netpbm-10.27/analyzer/pgmtexture.c	2005-03-29 14:31:43.124554816 +0200
+--------------------------
+Patching file analyzer/pgmtexture.c using Plan A...
+Hunk #1 succeeded at 75.
+Hunk #2 succeeded at 94.
+done

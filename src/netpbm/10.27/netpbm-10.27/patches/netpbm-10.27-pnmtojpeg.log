@@ -1,0 +1,9 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/pnmtojpeg.c.pnmtojpeg	2005-05-09 10:35:38.000000000 +0200
+|+++ netpbm-10.27/converter/other/pnmtojpeg.c	2005-05-09 12:06:01.387886328 +0200
+--------------------------
+Patching file converter/other/pnmtojpeg.c using Plan A...
+Hunk #1 succeeded at 320.
+done

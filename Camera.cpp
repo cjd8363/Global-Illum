@@ -94,8 +94,9 @@ void Camera::render(World* world)
             Point ori = Point(0,0,0,world->bgColor);
             Vect vec = Vect(x,y,z);
             Vect nVec = vec.normalize();
+            //cout << nVec.getX() << " " <<  nVec.getY() << " " << nVec.getZ() << endl;
             Ray ray = Ray(&ori,&nVec);
-            
+            //cout << ray.getDirection()->getX() << " " <<  ray.getDirection()->getY() << " " << ray.getDirection()->getZ() << endl;
             //Send it out into the world
             Point* p = world->trace(&ray);
             

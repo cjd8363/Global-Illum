@@ -5,6 +5,11 @@
  * @author Jorge Leon
  */
  
+#include <string>
+#include <vector>
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
 #include "World.h"
 
  // height and width refers to the pixel container, view pane
@@ -36,7 +41,8 @@
  // in the world. Will be null if no intersection occurs
  Point* World::trace(Ray* ray)
  {
-    
+    //cout << ray->getDirection()->getX() << " " <<  ray->getDirection()->getY() << " " << ray->getDirection()->getZ() << endl;
+    //cout << "TRACE" << endl;  
     Point* lowest = NULL;
     float distanceLOW = 100000000;
     for(int k = 0; k < this->objs.size(); k++)
@@ -45,6 +51,8 @@
         Point* p = this->objs.at(k)->intersect(ray);
         if (p!=NULL)
         {
+          //  cout << "Intersect" << endl;
+           // cout << p->getColor()->getRed() << endl;
             // update closest intersection point
             if (lowest!=NULL)
             {

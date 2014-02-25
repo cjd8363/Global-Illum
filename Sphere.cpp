@@ -4,9 +4,15 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
-
+#include <string>
+#include <vector>
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
 #include "Sphere.h"
- 
+
+using namespace std;
+
 Sphere::Sphere(float rad, Point* center, char* material) :
     Sphere::Object(material)
 {
@@ -27,23 +33,27 @@ Point* Sphere::intersect(Ray* ray)
     {
         // Create rayDirection vector from ray's direction, normalize. 
 		// Since direction is normalized value A becomes 1
-		Vect rayDirection = ray->getDirection()->normalize();
-			
+		
+        Vect rayDirection = ray->getDirection()->normalize();
+        
 		// Direction variables
 		float dx = rayDirection.getX();
 		float dy = rayDirection.getY();
 		float dz = rayDirection.getZ(); 
-		
+		//cout << "DIRECTION: " << dx << " " <<  dy << " " << dz << endl;
+        
 		// Center variables
 		float cX = this->center->getX();
 		float cY = this->center->getY();
 		float cZ = this->center->getZ();
-		
+		//cout << "CENTER: " << cX << " " << cY  << " " << cZ << endl;
+        
 		// Origin variables 
 		float oX = ray->getOrigin()->getX();
 		float oY = ray->getOrigin()->getY();
 		float oZ = ray->getOrigin()->getZ();
-		
+		//cout << "ORIGIN: " << oX << " " <<  oY << " " << oZ << endl;
+        
 		// B = 2*(dx*(OriginX - CenterX) + dy*(OriginY - CenterY)+ dz*(OriginZ - CenterZ))
 		float B = 2*(dx*(oX-cX)+dy*(oY-cY)+dz*(oZ-cZ));
 		// C = (OriginX - CenterX)^2+(OriginY - CenterY)^2+(OriginZ - CenterZ)^2+(radius)^2
@@ -51,14 +61,18 @@ Point* Sphere::intersect(Ray* ray)
 		 
 		// decider variable provides info about intersection of ray and sphere
 		float decider = B*B - 4*C;
-		
 		// If decider is less than 0, no real root, no intersection point
-		if (decider < 0){
-			return NULL;
+		if (decider - 0.0f < -.0000001f){
+           //printf("Neg");
+           //cout << (decider - 0.0f) << endl;
+           //printf("%d \n", decider);
+		   return NULL;
 		}
 		
 		// If decider is more than 0, ray goes through sphere
-		else if (decider > 0){
+		else if (decider - 0.0f > -.0000001f){
+           // printf("POSITIVE");
+            //printf("%d \n", decider);
 			float root_1 = ((-B)+(float)sqrt(decider))/2;
 			float root_2 = ((-B)-(float)sqrt(decider))/2;
 			
@@ -79,7 +93,8 @@ Point* Sphere::intersect(Ray* ray)
 		
 		// if neither, then decider = 0 so there's intersection and one root
 		float w = -B/2;
-		
+		//printf("ZERO");
+        //printf("%d \n", decider);
 		Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
 		
 		return p;
@@ -87,5 +102,13 @@ Point* Sphere::intersect(Ray* ray)
 	
 void Sphere::transform(fMatrix* matrix)
 {
-    this->center->transform(matrix);
+    float cX = this->center->getX();
+    float cY = this->center->getY();
+    float cZ = this->center->getZ();
+    cout << "CENTER: " << cX << " " << cY  << " " << cZ << endl;   
+    //this->center->transform(matrix);
+    float cX2 = this->center->getX();
+    float cY2 = this->center->getY();
+    float cZ2 = this->center->getZ();
+    cout << "CENTER AFTER: " << cX2 << " " << cY2  << " " << cZ2 << endl;
 }

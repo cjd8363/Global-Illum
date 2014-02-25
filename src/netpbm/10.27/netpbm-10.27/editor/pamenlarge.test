@@ -1,0 +1,4 @@
+echo Test 1.  Should print 3424505894 913236
+./pamenlarge 3 ../testimg.ppm | cksum
+
+

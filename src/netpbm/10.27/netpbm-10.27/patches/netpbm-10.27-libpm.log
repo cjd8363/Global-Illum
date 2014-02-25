@@ -1,0 +1,11 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/lib/libpm.c.bmptopnm	2005-05-09 09:00:44.695880392 +0200
+|+++ netpbm-10.27/lib/libpm.c	2005-05-09 09:04:51.783317392 +0200
+--------------------------
+Patching file lib/libpm.c using Plan A...
+Hunk #1 succeeded at 989 (offset 25 lines).
+Hunk #2 succeeded at 1069 (offset 25 lines).
+Hunk #3 succeeded at 1104 (offset 25 lines).
+done

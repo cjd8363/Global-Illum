@@ -1,0 +1,296 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/GNUmakefile netpbm-10.25/GNUmakefile
+|--- netpbm-10.25-orig/GNUmakefile	2004-10-16 22:27:50.000000000 +0200
+|+++ netpbm-10.25/GNUmakefile	2004-11-28 23:00:09.562500000 +0100
+--------------------------
+Patching file GNUmakefile using Plan A...
+Hunk #1 succeeded at 51.
+Hunk #2 succeeded at 367 (offset 11 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/Makefile.common netpbm-10.25/Makefile.common
+|--- netpbm-10.25-orig/Makefile.common	2004-10-16 22:25:44.000000000 +0200
+|+++ netpbm-10.25/Makefile.common	2004-11-28 20:32:59.515625000 +0100
+--------------------------
+Patching file Makefile.common using Plan A...
+Hunk #1 succeeded at 165 (offset -2 lines).
+Hunk #2 succeeded at 256 (offset -2 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/Makefile.srcdir netpbm-10.25/Makefile.srcdir
+|--- netpbm-10.25-orig/Makefile.srcdir	2002-06-10 05:39:35.000000000 +0200
+|+++ netpbm-10.25/Makefile.srcdir	2004-11-28 19:29:35.546875000 +0100
+--------------------------
+Patching file Makefile.srcdir using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/buildtools/Makefile netpbm-10.25/buildtools/Makefile
+|--- netpbm-10.25-orig/buildtools/Makefile	2004-07-23 04:31:35.000000000 +0200
+|+++ netpbm-10.25/buildtools/Makefile	2004-11-28 20:12:50.343750000 +0100
+--------------------------
+Patching file buildtools/Makefile using Plan A...
+Hunk #1 succeeded at 36 (offset 1 line).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/Makefile netpbm-10.25/converter/other/Makefile
+|--- netpbm-10.25-orig/converter/other/Makefile	2004-10-16 22:53:14.000000000 +0200
+|+++ netpbm-10.25/converter/other/Makefile	2004-11-28 22:16:53.828125000 +0100
+--------------------------
+Patching file converter/other/Makefile using Plan A...
+Hunk #1 succeeded at 22.
+Hunk #2 FAILED at 105.
+Hunk #3 FAILED at 136.
+Hunk #4 succeeded at 168 (offset 16 lines).
+2 out of 4 hunks FAILED -- saving rejects to file converter/other/Makefile.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/anytopnm netpbm-10.25/converter/other/anytopnm
+|--- netpbm-10.25-orig/converter/other/anytopnm	2004-10-13 17:05:53.000000000 +0200
+|+++ netpbm-10.25/converter/other/anytopnm	2004-11-28 20:16:03.625000000 +0100
+--------------------------
+Patching file converter/other/anytopnm using Plan A...
+Hunk #1 succeeded at 522.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/fiasco/Makefile netpbm-10.25/converter/other/fiasco/Makefile
+|--- netpbm-10.25-orig/converter/other/fiasco/Makefile	2003-09-13 04:44:09.000000000 +0200
+|+++ netpbm-10.25/converter/other/fiasco/Makefile	2004-11-28 21:51:50.187500000 +0100
+--------------------------
+Patching file converter/other/fiasco/Makefile using Plan A...
+Hunk #1 succeeded at 36.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jbig/Makefile netpbm-10.25/converter/other/jbig/Makefile
+|--- netpbm-10.25-orig/converter/other/jbig/Makefile	2004-07-22 00:55:36.000000000 +0200
+|+++ netpbm-10.25/converter/other/jbig/Makefile	2004-11-28 20:19:26.812500000 +0100
+--------------------------
+Patching file converter/other/jbig/Makefile using Plan A...
+Hunk #1 FAILED at 37.
+1 out of 1 hunk FAILED -- saving rejects to file converter/other/jbig/Makefile.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/Makefile netpbm-10.25/converter/other/jpeg2000/Makefile
+|--- netpbm-10.25-orig/converter/other/jpeg2000/Makefile	2004-03-29 18:56:42.000000000 +0200
+|+++ netpbm-10.25/converter/other/jpeg2000/Makefile	2004-11-28 22:21:54.859375000 +0100
+--------------------------
+Patching file converter/other/jpeg2000/Makefile using Plan A...
+Hunk #1 FAILED at 43.
+1 out of 1 hunk FAILED -- saving rejects to file converter/other/jpeg2000/Makefile.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h netpbm-10.25/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h
+|--- netpbm-10.25-orig/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h	2004-09-09 04:43:52.000000000 +0200
+|+++ netpbm-10.25/converter/other/jpeg2000/libjasper/include/jasper/jas_types.h	2004-11-28 21:45:52.125000000 +0100
+--------------------------
+Patching file converter/other/jpeg2000/libjasper/include/jasper/jas_types.h using Plan A...
+Hunk #1 FAILED at 129.
+1 out of 1 hunk FAILED -- saving rejects to file converter/other/jpeg2000/libjasper/include/jasper/jas_types.h.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c netpbm-10.25/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c
+|--- netpbm-10.25-orig/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c	2004-09-09 04:31:33.000000000 +0200
+|+++ netpbm-10.25/converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c	2004-11-28 21:51:07.359375000 +0100
+--------------------------
+Patching file converter/other/jpeg2000/libjasper/jpc/jpc_qmfb.c using Plan A...
+Hunk #1 succeeded at 207.
+Hunk #2 succeeded at 322.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/other/pnmtopalm/Makefile netpbm-10.25/converter/other/pnmtopalm/Makefile
+|--- netpbm-10.25-orig/converter/other/pnmtopalm/Makefile	2004-06-21 00:56:23.000000000 +0200
+|+++ netpbm-10.25/converter/other/pnmtopalm/Makefile	2004-11-28 20:20:30.203125000 +0100
+--------------------------
+Patching file converter/other/pnmtopalm/Makefile using Plan A...
+Hunk #1 succeeded at 21.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/Makefile netpbm-10.25/converter/pbm/Makefile
+|--- netpbm-10.25-orig/converter/pbm/Makefile	2004-10-16 20:08:45.000000000 +0200
+|+++ netpbm-10.25/converter/pbm/Makefile	2004-11-28 19:29:35.625000000 +0100
+--------------------------
+Patching file converter/pbm/Makefile using Plan A...
+Hunk #1 succeeded at 73.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/pbmtoppa/Makefile netpbm-10.25/converter/pbm/pbmtoppa/Makefile
+|--- netpbm-10.25-orig/converter/pbm/pbmtoppa/Makefile	2004-03-29 18:50:15.000000000 +0200
+|+++ netpbm-10.25/converter/pbm/pbmtoppa/Makefile	2004-11-28 20:49:19.281250000 +0100
+--------------------------
+Patching file converter/pbm/pbmtoppa/Makefile using Plan A...
+Hunk #1 succeeded at 3.
+Hunk #2 succeeded at 20.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/pbm/pbmtoppa/pbmtoppa.c netpbm-10.25/converter/pbm/pbmtoppa/pbmtoppa.c
+|--- netpbm-10.25-orig/converter/pbm/pbmtoppa/pbmtoppa.c	2002-07-30 17:48:16.000000000 +0200
+|+++ netpbm-10.25/converter/pbm/pbmtoppa/pbmtoppa.c	2004-11-28 19:29:35.656250000 +0100
+--------------------------
+Patching file converter/pbm/pbmtoppa/pbmtoppa.c using Plan A...
+Hunk #1 succeeded at 19.
+Hunk #2 succeeded at 393.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/picttoppm.c netpbm-10.25/converter/ppm/picttoppm.c
+|--- netpbm-10.25-orig/converter/ppm/picttoppm.c	2004-03-31 21:19:44.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/picttoppm.c	2004-11-28 19:29:35.671875000 +0100
+--------------------------
+Patching file converter/ppm/picttoppm.c using Plan A...
+Hunk #1 FAILED at 32.
+Hunk #2 FAILED at 997.
+2 out of 2 hunks FAILED -- saving rejects to file converter/ppm/picttoppm.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/Makefile netpbm-10.25/converter/ppm/ppmtompeg/Makefile
+|--- netpbm-10.25-orig/converter/ppm/ppmtompeg/Makefile	2004-10-16 22:28:32.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/ppmtompeg/Makefile	2004-11-28 20:57:54.593750000 +0100
+--------------------------
+Patching file converter/ppm/ppmtompeg/Makefile using Plan A...
+Hunk #1 succeeded at 72.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/noparallel.c netpbm-10.25/converter/ppm/ppmtompeg/noparallel.c
+|--- netpbm-10.25-orig/converter/ppm/ppmtompeg/noparallel.c	2003-07-02 04:43:28.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/ppmtompeg/noparallel.c	2004-11-28 20:57:16.421875000 +0100
+--------------------------
+Patching file converter/ppm/ppmtompeg/noparallel.c using Plan A...
+Hunk #1 FAILED at 215.
+1 out of 1 hunk FAILED -- saving rejects to file converter/ppm/ppmtompeg/noparallel.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/ppmtompeg/parallel.c netpbm-10.25/converter/ppm/ppmtompeg/parallel.c
+|--- netpbm-10.25-orig/converter/ppm/ppmtompeg/parallel.c	2004-10-13 19:22:31.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/ppmtompeg/parallel.c	2004-11-28 19:29:35.718750000 +0100
+--------------------------
+Patching file converter/ppm/ppmtompeg/parallel.c using Plan A...
+Hunk #1 succeeded at 1059 (offset 15 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/vidtoppm.c netpbm-10.25/converter/ppm/vidtoppm.c
+|--- netpbm-10.25-orig/converter/ppm/vidtoppm.c	2000-05-16 22:22:34.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/vidtoppm.c	2004-11-28 19:29:35.734375000 +0100
+--------------------------
+Patching file converter/ppm/vidtoppm.c using Plan A...
+Hunk #1 succeeded at 245.
+Hunk #2 succeeded at 263.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/xpmtoppm.c netpbm-10.25/converter/ppm/xpmtoppm.c
+|--- netpbm-10.25-orig/converter/ppm/xpmtoppm.c	2004-03-13 20:36:36.000000000 +0100
+|+++ netpbm-10.25/converter/ppm/xpmtoppm.c	2004-11-28 20:52:29.140625000 +0100
+--------------------------
+Patching file converter/ppm/xpmtoppm.c using Plan A...
+Hunk #1 succeeded at 121.
+Hunk #2 succeeded at 384.
+Hunk #3 succeeded at 436.
+Hunk #4 succeeded at 473.
+Hunk #5 succeeded at 521.
+Hunk #6 succeeded at 544.
+Hunk #7 succeeded at 580.
+Hunk #8 succeeded at 671.
+Hunk #9 succeeded at 691.
+Hunk #10 succeeded at 701.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/converter/ppm/xvminitoppm.c netpbm-10.25/converter/ppm/xvminitoppm.c
+|--- netpbm-10.25-orig/converter/ppm/xvminitoppm.c	2002-07-30 18:31:40.000000000 +0200
+|+++ netpbm-10.25/converter/ppm/xvminitoppm.c	2004-11-28 20:53:44.015625000 +0100
+--------------------------
+Patching file converter/ppm/xvminitoppm.c using Plan A...
+Hunk #1 succeeded at 14.
+Hunk #2 succeeded at 48.
+Hunk #3 succeeded at 85.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pamstretch-gen netpbm-10.25/editor/pamstretch-gen
+|--- netpbm-10.25-orig/editor/pamstretch-gen	2004-07-25 02:01:24.000000000 +0200
+|+++ netpbm-10.25/editor/pamstretch-gen	2004-11-28 20:13:36.546875000 +0100
+--------------------------
+Patching file editor/pamstretch-gen using Plan A...
+Hunk #1 succeeded at 31.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pnmindex netpbm-10.25/editor/pnmindex
+|--- netpbm-10.25-orig/editor/pnmindex	2003-12-31 04:58:26.000000000 +0100
+|+++ netpbm-10.25/editor/pnmindex	2004-11-28 20:14:20.218750000 +0100
+--------------------------
+Patching file editor/pnmindex using Plan A...
+Hunk #1 succeeded at 89.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/editor/pnmsmooth.c netpbm-10.25/editor/pnmsmooth.c
+|--- netpbm-10.25-orig/editor/pnmsmooth.c	2004-04-17 23:31:41.000000000 +0200
+|+++ netpbm-10.25/editor/pnmsmooth.c	2004-11-28 19:29:35.781250000 +0100
+--------------------------
+Patching file editor/pnmsmooth.c using Plan A...
+Hunk #1 FAILED at 36.
+1 out of 1 hunk FAILED -- saving rejects to file editor/pnmsmooth.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/Makefile netpbm-10.25/lib/Makefile
+|--- netpbm-10.25-orig/lib/Makefile	2004-10-16 19:29:23.000000000 +0200
+|+++ netpbm-10.25/lib/Makefile	2004-11-29 13:43:18.468750000 +0100
+--------------------------
+Patching file lib/Makefile using Plan A...
+Hunk #1 succeeded at 3.
+Hunk #2 succeeded at 77.
+Hunk #3 succeeded at 117.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/libpm.c netpbm-10.25/lib/libpm.c
+|--- netpbm-10.25-orig/lib/libpm.c	2004-10-09 17:31:01.000000000 +0200
+|+++ netpbm-10.25/lib/libpm.c	2004-11-28 19:29:35.812500000 +0100
+--------------------------
+Patching file lib/libpm.c using Plan A...
+Hunk #1 succeeded at 51 with fuzz 2 (offset 2 lines).
+Hunk #2 succeeded at 63 with fuzz 2 (offset 2 lines).
+Hunk #3 FAILED at 394.
+Hunk #4 succeeded at 502 (offset 32 lines).
+1 out of 4 hunks FAILED -- saving rejects to file lib/libpm.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/lib/pm.h netpbm-10.25/lib/pm.h
+|--- netpbm-10.25-orig/lib/pm.h	2004-05-01 05:19:41.000000000 +0200
+|+++ netpbm-10.25/lib/pm.h	2004-11-28 19:29:35.812500000 +0100
+--------------------------
+Patching file lib/pm.h using Plan A...
+Hunk #1 succeeded at 334 (offset 44 lines).
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x config.log -x config.status -x config.cache -x '*.Po' -x '*.pot' -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' -x '*.o' -x '*.exe' -x patches netpbm-10.25-orig/manweb netpbm-10.25/manweb
+|--- netpbm-10.25-orig/manweb	2003-09-08 17:46:40.000000000 +0200
+|+++ netpbm-10.25/manweb	2004-11-28 19:29:35.843750000 +0100
+--------------------------
+Patching file manweb using Plan A...
+Hunk #1 succeeded at 315.
+done

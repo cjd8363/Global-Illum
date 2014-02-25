@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     }
     
     //BackGround Color
-    
+    cout << "BG COLOR " << data.at(4).at(0) << " " << data.at(4).at(1) << " " << data.at(4).at(2) << endl;
     Color bg = Color(data.at(4).at(0), data.at(4).at(1), data.at(4).at(2));
     
     //Create Camera
@@ -53,6 +53,7 @@ int main(int argc, char** argv)
         {
             Color color = Color(data.at(i).at(5),data.at(i).at(6),data.at(i).at(7));
             cout << "SPHERE" << endl;
+            cout << "COLOR " << data.at(i).at(5) << " " << data.at(i).at(6) << " " << data.at(i).at(7) << endl;
             Point center = Point(data.at(i).at(2),data.at(i).at(3),data.at(i).at(4), &color);
             char temp = 'a';
             Sphere s = Sphere(data.at(i).at(1), &center, &temp);
@@ -83,7 +84,7 @@ int main(int argc, char** argv)
     cout << world.width << endl;
     
     
-    outputer::savebmp(argv[2], world.width, world.height, 72, &world.pixels);
+    outputer::saveppm(argv[2], world.width, world.height, 72, &world.pixels);
     printf("DONE ");
     
         

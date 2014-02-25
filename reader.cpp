@@ -34,7 +34,6 @@ std::vector<float> dimensions (std::string &sample){
     char * p = std::strtok(temp, ", ");
 	while (p!=NULL)
     {
-        printf("WHAT \n");
         std::string temp2 = std::string(p);
         result.push_back(stringToNumber(temp2));
         p = std::strtok(NULL, " ");

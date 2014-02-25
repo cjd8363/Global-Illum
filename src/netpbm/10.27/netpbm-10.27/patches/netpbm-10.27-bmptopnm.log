@@ -1,0 +1,11 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- netpbm-10.27/converter/other/bmptopnm.c.bmptopnm	2005-05-09 10:06:05.707795976 +0200
+|+++ netpbm-10.27/converter/other/bmptopnm.c	2005-05-09 10:29:30.498235368 +0200
+--------------------------
+Patching file converter/other/bmptopnm.c using Plan A...
+Hunk #1 succeeded at 932.
+Hunk #2 succeeded at 1081.
+Hunk #3 succeeded at 1106.
+done

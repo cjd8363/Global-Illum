@@ -59,11 +59,11 @@ float Vect::dotProduct(Vect* v){
     return ((this->x * v->getX()) + (this->y * v->getY()) + (this->z * v->getZ()));
 }
 
-float getAngle(Vect* v, Vect* w){
+float Vect::getAngle(Vect* v){
 	float PI = 3.14159265f;
 	float length_V = v->length();			// Get the magnitude of v
-	float length_W = w->length();			// Get the magnitude of w
-	float dot_product = v->dotProduct(w);	// Get the dot product of v and w
+	float length_W = this->length();			// Get the magnitude of w
+	float dot_product = this->dotProduct(v);	// Get the dot product of v and w
 	// Return the angle in degrees
 	return (acos( dot_product/(length_V*length_W))*(180.0f/PI));
 }

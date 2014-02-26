@@ -36,7 +36,7 @@ public:
 	
     Vect vectMult(float sca);
 	
-	float getAngle(Vect* v, Vect* w);
+	float getAngle(Vect* v);
     
     void setX(float x);
     

@@ -6,6 +6,7 @@
  */
  
 #include "Object.h" 
+#include "Vect.h"
 #include <vector>
 
 class Polygon : public Object
@@ -28,4 +29,7 @@ public:
     
     // Moves this according to the given polygon
     void transform(fMatrix* matrix);
+	
+	// Runs sum of all angles algorithm
+	bool sumofAll(Point* p, std::vector<Point> vertices);
 };

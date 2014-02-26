@@ -35,6 +35,8 @@ public:
     float dotProduct(Vect* v);
 	
     Vect vectMult(float sca);
+	
+	float getAngle(Vect* v, Vect* w);
     
     void setX(float x);
     

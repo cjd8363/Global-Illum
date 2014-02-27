@@ -15,7 +15,7 @@
 //Inits the focal length to 1 if not provided
 Camera::Camera(Point* pos, Point* lookAt, Point* up)
 {
-    Camera(pos, lookAt, up, 1.0);
+    Camera(pos, lookAt, up, 1.0f);
 }
 
 Camera::Camera(Point* pos, Point* lookAt, Point* up, float focalLen)
@@ -93,11 +93,13 @@ void Camera::render(World* world)
             //Create ray
             Point ori = Point(0,0,0,world->bgColor);
             Vect vec = Vect(x,y,z);
+            //cout << vec.getX() << " " <<  vec.getY() << " " << vec.getZ() << endl;
             Vect nVec = vec.normalize();
             //cout << nVec.getX() << " " <<  nVec.getY() << " " << nVec.getZ() << endl;
             Ray ray = Ray(&ori,&nVec);
             //cout << ray.getDirection()->getX() << " " <<  ray.getDirection()->getY() << " " << ray.getDirection()->getZ() << endl;
             //Send it out into the world
+           
             Point* p = world->trace(&ray);
             
             // if we hit something, the current pixel gets the color of the hit point

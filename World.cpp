@@ -47,25 +47,36 @@
     float distanceLOW = 100000000;
     for(int k = 0; k < this->objs.size(); k++)
     {
-        // Get intersection point
+        // Get intersection point;
         Point* p = this->objs.at(k)->intersect(ray);
+        
         if (p!=NULL)
         {
-          //  cout << "Intersect" << endl;
-           // cout << p->getColor()->getRed() << endl;
+           //cout << p->getColor()->getBlue() << endl; 
+           // cout << "Intersect" << endl;
+          //cout << ray->getDirection()->getX() << ray->getDirection()->getY() << endl;
+          //cout << p->getColor()->getBlue() << endl;
             // update closest intersection point
             if (lowest!=NULL)
             {
                 float distance = p->distance(Point(0,0,0, p->getColor()));
-                if (distance < distanceLOW)
+               // cout << k << endl;
+               // cout << ray->getDirection()->getX() << ray->getDirection()->getY() << endl;
+                
+                if (distance - distanceLOW < -.001)
                 {
+                    //cout << distance << endl;
                     p = lowest;
                     distanceLOW = distance;
                 }
             }
             else
             {
-                p = lowest;
+                lowest = p;
+                distanceLOW = p->distance(Point(0,0,0, p->getColor()));
+                //cout << k << endl;
+                //cout << ray->getDirection()->getX() << ray->getDirection()->getY() << endl;
+                //cout << p->distance(Point(0,0,0, p->getColor())) << endl;
             }
         }
     }

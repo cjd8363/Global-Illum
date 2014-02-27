@@ -40,36 +40,40 @@ int main(int argc, char** argv)
     Point camPos = Point((data.at(1).at(0)), data.at(1).at(1), data.at(1).at(2), &bg);
     Point camLook = Point(data.at(2).at(0), data.at(2).at(1), data.at(2).at(2), &bg);
     Point camUp = Point(data.at(3).at(0), data.at(3).at(1), data.at(3).at(2), &bg);
-    Camera cam = Camera(&camPos, &camLook, &camUp);
+    Camera cam = Camera(&camPos, &camLook, &camUp, 25.0f);
     
     //Create World
     World world = World((data.at(0).at(0)), data.at(0).at(1), &bg);
     cout << "HIT" << endl;
     //Create Objects
     //TO DO EXTRA: Make so that this sequence is not hardcoded
+    
     for (int i = 5; i < data.size(); i++)
     {
+      
         if (data.at(i).at(0) == 31.0)
         {
-            Color color = Color(data.at(i).at(5),data.at(i).at(6),data.at(i).at(7));
+            Color* color = new Color(data.at(i).at(5),data.at(i).at(6),data.at(i).at(7));
             cout << "SPHERE" << endl;
             cout << "COLOR " << data.at(i).at(5) << " " << data.at(i).at(6) << " " << data.at(i).at(7) << endl;
-            Point center = Point(data.at(i).at(2),data.at(i).at(3),data.at(i).at(4), &color);
+            cout << "CENTER " << data.at(i).at(2) << " " <<  data.at(i).at(3) << " " << data.at(i).at(4) << endl;
+            Point* center = new Point(data.at(i).at(2),data.at(i).at(3),data.at(i).at(4), color);
             char temp = 'a';
-            Sphere s = Sphere(data.at(i).at(1), &center, &temp);
-            world.addObj(&s);
-            
+            Object* s = new Sphere(data.at(i).at(1), center, &temp);
+            world.addObj(s);
+            cout << (dynamic_cast<Sphere*> (world.objs.at(0)))->getCenter()->getZ() << endl;
+            cout << (dynamic_cast<Sphere*> (world.objs.at(0)))->getCenter()->getColor()->getBlue() << endl;
         }
         if (data.at(i).at(0) == 21.0)
         {
             Color color = Color(data.at(i).at(10),data.at(i).at(11),data.at(i).at(12));
-            Point v1 = Point(data.at(i).at(1),data.at(i).at(2),data.at(i).at(3), &color);
-            Point v2 = Point(data.at(i).at(4),data.at(i).at(5),data.at(i).at(6), &color);
-            Point v3 = Point(data.at(i).at(7),data.at(i).at(8),data.at(i).at(9), &color);
-            Point pts[3] = {v1,v2,v3};
+            Point* v1 = new Point(data.at(i).at(1),data.at(i).at(2),data.at(i).at(3), &color);
+            Point* v2 = new Point(data.at(i).at(4),data.at(i).at(5),data.at(i).at(6), &color);
+            Point* v3 = new Point(data.at(i).at(7),data.at(i).at(8),data.at(i).at(9), &color);
+            Point* pts[3] = {v1,v2,v3};
             char temp = 'a'; 
-            Polygon p = Polygon(pts, &temp);
-            world.addObj(&p);
+            Object* p = new Polygon(pts, &temp);
+            world.addObj(p);
             cout << "POLY" << endl;
         }
     }

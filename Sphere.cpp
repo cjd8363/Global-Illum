@@ -35,12 +35,14 @@ Point* Sphere::intersect(Ray* ray)
 		// Since direction is normalized value A becomes 1
 		
         Vect rayDirection = ray->getDirection()->normalize();
+        //Vect rayDirection = *ray->getDirection(); //->normalize();
+        
         
 		// Direction variables
 		float dx = rayDirection.getX();
 		float dy = rayDirection.getY();
 		float dz = rayDirection.getZ(); 
-		//cout << "DIRECTION: " << dx << " " <<  dy << " " << dz << endl;
+	   // cout << "DIRECTION: " << dx << " " <<  dy << " " << dz << endl;
         
 		// Center variables
 		float cX = this->center->getX();
@@ -57,10 +59,10 @@ Point* Sphere::intersect(Ray* ray)
 		// B = 2*(dx*(OriginX - CenterX) + dy*(OriginY - CenterY)+ dz*(OriginZ - CenterZ))
 		float B = 2*(dx*(oX-cX)+dy*(oY-cY)+dz*(oZ-cZ));
 		// C = (OriginX - CenterX)^2+(OriginY - CenterY)^2+(OriginZ - CenterZ)^2+(radius)^2
-		float C = ((oX-cX)*(oX-cX)+(oY-cY)*(oY-cY)+(oZ-cZ)*(oZ-cZ))-((this->radius)*(this->radius));
+		float C = (((oX-cX)*(oX-cX))+((oY-cY)*(oY-cY))+((oZ-cZ)*(oZ-cZ)))-((this->radius)*(this->radius));
 		 
 		// decider variable provides info about intersection of ray and sphere
-		float decider = B*B - 4*C;
+		float decider = (B*B) - (4*C);
 		// If decider is less than 0, no real root, no intersection point
 		if (decider - 0.0f < -.0000001f){
            //printf("Neg");
@@ -70,8 +72,9 @@ Point* Sphere::intersect(Ray* ray)
 		}
 		
 		// If decider is more than 0, ray goes through sphere
-		else if (decider - 0.0f > -.0000001f){
-           // printf("POSITIVE");
+		else if (decider - 0.0f > .0000001f){
+            //cout << decider << endl;
+            //printf("POSITIVE");
             //printf("%d \n", decider);
 			float root_1 = ((-B)+(float)sqrt(decider))/2;
 			float root_2 = ((-B)-(float)sqrt(decider))/2;
@@ -81,12 +84,15 @@ Point* Sphere::intersect(Ray* ray)
 				float w = root_1;
 				// Color to be modified once the reflection functions are specified.
 				Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
+                cout << p->getColor()->getBlue() << endl;
 				return p;
 			}
-			
+			//cout << root_1 << endl;
+            //cout << root_2 << endl;
 			float w = root_2;
 			// Remember to change color
 			Point* p = new Point(oX + dx*w, oY + dy*w, oZ + dz*w, this->center->getColor());
+            //cout << p->getColor()->getBlue() << endl;
 			return p;
 			
 		}

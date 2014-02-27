@@ -26,5 +26,10 @@ public:
     //Moves sphere according to matrix
     void transform(fMatrix* matrix);
     
+    Point* getCenter()
+    {
+        return center;
+    }
+    
 };
  

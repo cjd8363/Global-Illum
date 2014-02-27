@@ -4,13 +4,17 @@
  * @author Charlene DiMeglio
  * @author Jorge Leon
  */
- 
+ #include <string>
+#include <vector>
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
 #include "Polygon.h" 
  
-Polygon::Polygon(Point pts[], char* material) :
+Polygon::Polygon(Point* pts[], char* material) :
     Object(material)
 {
-    this->vertices = std::vector<Point>(pts, pts + sizeof(pts)/sizeof(Point));
+    this->vertices = std::vector<Point*>(pts, pts + sizeof(pts)/sizeof(Point));
 }
 
 bool sumofAll(Point* p, std::vector<Point> vertices){
@@ -66,6 +70,7 @@ bool sumofAll(Point* p, std::vector<Point> vertices){
 // If so, the point of intersection will be returned, otherwise NULL
 Point* Polygon::intersect(Ray* ray)
 {
+printf("YIP");
     // Create rayDirection vector from ray's direction, normalize. 
 	// Since direction is normalized value A becomes 1
 	Vect rayDirection = ray->getDirection()->normalize();
@@ -81,9 +86,9 @@ Point* Polygon::intersect(Ray* ray)
 	float oZ = ray->getOrigin()->getZ();
 	
 	// Select three points from the vertices vector to calculate normal
-	Point* first = &vertices.at(0);
-	Point* secnd = &vertices.at(1);
-	Point* third = &vertices.at(2);
+	Point* first = vertices.at(0);
+	Point* secnd = vertices.at(1);
+	Point* third = vertices.at(2);
 	
 	// Create two vectors based on point first-sec and first-third;
 	Vect* first_sec = new Vect((secnd->getX()-first->getX()), (secnd->getY()-first->getY()),(secnd->getZ()- first->getZ()));
@@ -131,6 +136,6 @@ void Polygon::transform(fMatrix* matrix)
 {
     for (int i = 0; i < this->vertices.size(); i++)
     {
-        this->vertices.at(i).transform(matrix);
+        this->vertices.at(i)->transform(matrix);
     }
 }

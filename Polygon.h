@@ -14,7 +14,7 @@ class Polygon : public Object
 private:
     
     // The verticies of this triangle
-    std::vector<Point> vertices;
+    std::vector<Point*> vertices;
     
     // The normal for this triangle
     Vect norm;
@@ -22,7 +22,7 @@ private:
 public:
     
     // Maybe not correct
-    Polygon(Point pts[], char* material);
+    Polygon(Point* pts[], char* material);
     
     // Checks if ray intersects with this
     Point* intersect(Ray* ray);

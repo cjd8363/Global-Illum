@@ -66,11 +66,15 @@ int main(int argc, char** argv)
         }
         if (data.at(i).at(0) == 21.0)
         {
-            Color color = Color(data.at(i).at(10),data.at(i).at(11),data.at(i).at(12));
-            Point* v1 = new Point(data.at(i).at(1),data.at(i).at(2),data.at(i).at(3), &color);
-            Point* v2 = new Point(data.at(i).at(4),data.at(i).at(5),data.at(i).at(6), &color);
-            Point* v3 = new Point(data.at(i).at(7),data.at(i).at(8),data.at(i).at(9), &color);
-            Point* pts[3] = {v1,v2,v3};
+            Color* color = new Color(data.at(i).at(10),data.at(i).at(11),data.at(i).at(12));
+            vector<Point*>* pts= new vector<Point*>();
+            Point* v1 = new Point(data.at(i).at(1),data.at(i).at(2),data.at(i).at(3), color);
+            Point* v2 = new Point(data.at(i).at(4),data.at(i).at(5),data.at(i).at(6), color);
+            Point* v3 = new Point(data.at(i).at(7),data.at(i).at(8),data.at(i).at(9), color);
+            pts->push_back(v1);
+            pts->push_back(v2);
+            pts->push_back(v3);
+            //Point* pts[3] = {v1,v2,v3};
             char temp = 'a'; 
             Object* p = new Polygon(pts, &temp);
             world.addObj(p);

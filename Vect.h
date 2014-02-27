@@ -5,6 +5,8 @@
  * @author Jorge Leon
  */
 
+#ifndef _VECT_H
+#define _VECT_H
 #include <math.h>
  
 class Vect
@@ -50,3 +52,4 @@ public:
         
     float getZ();
 };
+#endif 

@@ -102,4 +102,3 @@ float Vect::getZ()
 {
     return this->z;
 }
-
